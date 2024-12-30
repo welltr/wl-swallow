@@ -1,7 +1,7 @@
 <template>
     <div class="phase-report">
         <h3>吞咽微动作起止时间</h3>
-        <div class="xuanze">
+        <div class="xuanze" style="display:inline-block">
             <label class='propt'>吞咽片段选择：</label>
             <select v-model="selectedOption" id="dropdown">
                 <option value="1">第 1 口</option>
@@ -14,6 +14,13 @@
 
         <button @click="exportData">导出数据</button>
 
+        <!-- 文本框，使用readonly属性来控制是否可编辑
+        <input type="text" v-model="textInput" :readonly="!isEditable">
+        <p>{{textInput}}</p> -->
+
+        <!-- 按钮，点击后切换文本框的可编辑状态 -->
+        <button @click="toggleEditable">修改数据</button>
+        <button @click="toggleEditable2">保存修改</button>
 
         <div class="recog">
             <div v-for="(elem, index) in phaseData" :key="index" class="recog-cls">
@@ -21,9 +28,9 @@
                 <!-- <input class="title" v-model="elem.name">{{ elem.name }}</input> -->
                 <div class="period">
                     <!-- <div class="dis" >{{ elem.period[selectedOption - 1].start.toFixed(3) }} s</div> -->
-                    <input class="dis" v-model="elem.period[selectedOption - 1].start"> s</input>
+                    <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption - 1].start"> s</input>
                     <div style="font-weight: bold;">~</div>
-                    <input class="dis" v-model="elem.period[selectedOption - 1].end"> s</input>
+                    <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption - 1].end"> s</input>
                     <!-- <div class="dis">{{ elem.period[selectedOption - 1].end.toFixed(3) }} s</div> -->
                 </div>
             </div>
@@ -35,6 +42,15 @@
 
 <script setup>
 import { ref } from 'vue';
+
+let isEditable=ref(false)
+let textInput=ref('')
+function toggleEditable() {
+    isEditable.value = true;
+}
+function toggleEditable2() {
+    isEditable.value = false;
+}
 
 const selectedOption = ref('1');  // 使用 ref 创建响应式变量
 const optionContent = {
@@ -99,6 +115,8 @@ function exportData() {
     /* margin-bottom: 20px; */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'STKaiti';
+
 }
 
 h3 {
@@ -153,7 +171,7 @@ h3 {
 
 .dis {
     /* background-color: aqua; */
-    width: 45%;
+    width: 30%;
     text-align: center;
     /* flex: 1; */
 }
