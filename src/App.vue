@@ -2,7 +2,9 @@
   <div id="app">
     <div class="container">
       <div class="left">
+
         <div class="section">
+          <Test/>
           <!-- <CaseForm /> -->
           <SummaryReport id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" />
           <!-- <PhaseRecognition id="PhaseRecognition" :currentTime="currentTime" :totalTime="totalTime" /> -->
@@ -27,6 +29,7 @@ import SummaryReport from './components/SummaryReport.vue';
 import VideoPlayer from './components/VideoPlayer.vue';
 import Timeline from './components/TimeBox.vue';
 import PhaseReport from './components/PhaseReport.vue';
+import Test from './components/test.vue';
 
 export default {
   components: {
@@ -35,7 +38,8 @@ export default {
     SummaryReport,
     VideoPlayer,
     Timeline,
-    PhaseReport
+    PhaseReport,
+    Test
   },
   data() {
     return {
