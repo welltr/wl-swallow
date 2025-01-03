@@ -1,6 +1,8 @@
 <template>
     <div class="phase-report">
-        <h3>吞咽微动作起止时间</h3>
+        <h3 style="display:inline-block">吞咽微动作起止时间</h3>
+        <button @click="exportData">导出数据</button>
+
         <div class="xuanze" style="display:inline-block">
             <label class='propt'>吞咽片段选择：</label>
             <select v-model="selectedOption" id="dropdown">
@@ -9,7 +11,6 @@
             </select>
         </div>
 
-        <button @click="exportData">导出数据</button>
 
         <!-- 文本框，使用readonly属性来控制是否可编辑
         <input type="text" v-model="textInput" :readonly="!isEditable">
@@ -20,7 +21,7 @@
         <button @click="toggleEditable2">保存修改</button>
 
         <div class="recog">
-            <div v-for="(elem, index) in phaseData" :key="index" class="recog-cls">
+            <div v-for="(elem, index) in bendi" :key="index" class="recog-cls">
                 <div class="title">{{ elem.name }}</div>
                 <div class="period">
                     <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption].start">
@@ -36,12 +37,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import { storeToRefs } from 'pinia';
 
 import { usePeriod } from '@/stores/period';
 const periodStore = usePeriod()
 const { phaseData } = storeToRefs(periodStore)
+let bendi = reactive(JSON.parse(JSON.stringify(phaseData.value)));
 
 
 let isEditable = ref(false)
@@ -51,6 +53,7 @@ function toggleEditable() {
 }
 function toggleEditable2() {
     isEditable.value = false;
+    phaseData.value=JSON.parse(JSON.stringify(bendi));
 }
 
 const selectedOption = ref('0');  // 使用 ref 创建响应式变量
