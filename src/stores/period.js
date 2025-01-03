@@ -1,7 +1,7 @@
 import { ref, reactive, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const usePeriodStore = defineStore('counter', () => {
+export const usePeriod = defineStore('period', () => {
   const phaseData = reactive([
     { name: '口腔运送', period: [{ start: 3.306, end: 4.595 }, { start: 39.047, end: 39.432 }] },
     { name: '软腭上抬', period: [{ start: 4.347, end: 5.587 }, { start: 39.031, end: 39.486 }] },

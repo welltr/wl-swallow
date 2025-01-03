@@ -41,9 +41,9 @@
 </template>
 
 <script setup>
-import { usePeriodStore } from '@/stores/period';
-const Store =usePeriodStore()
-const phaseData=Store.progress
+import { usePeriod } from '@/stores/period';
+const Store =usePeriod()
+const phaseData=Store.phaseData
 
 
 import { ref } from 'vue';
