@@ -4,13 +4,10 @@
         <div class="xuanze" style="display:inline-block">
             <label class='propt'>吞咽片段选择：</label>
             <select v-model="selectedOption" id="dropdown">
-                <option value="1">第 1 口</option>
-                <option value="2">第 2 口</option>
-                <!-- <option value="3">选项 3</option> -->
+                <option value="0">第 1 口</option>
+                <option value="1">第 2 口</option>
             </select>
-            <!-- <p>开始和结束时间</p> -->
         </div>
-        <!-- <p>{{ selectedOption }}</p> -->
 
         <button @click="exportData">导出数据</button>
 
@@ -25,14 +22,11 @@
         <div class="recog">
             <div v-for="(elem, index) in phaseData" :key="index" class="recog-cls">
                 <div class="title">{{ elem.name }}</div>
-                <!-- <input class="title" v-model="elem.name">{{ elem.name }}</input> -->
                 <div class="period">
-                    <!-- <div class="dis" >{{ elem.period[selectedOption - 1].start.toFixed(3) }} s</div> -->
-                    <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption - 1].start">
+                    <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption].start">
                     s</input>
                     <div style="font-weight: bold;">~</div>
-                    <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption - 1].end"> s</input>
-                    <!-- <div class="dis">{{ elem.period[selectedOption - 1].end.toFixed(3) }} s</div> -->
+                    <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption].end"> s</input>
                 </div>
             </div>
         </div>
@@ -47,7 +41,7 @@ import { storeToRefs } from 'pinia';
 
 import { usePeriod } from '@/stores/period';
 const periodStore = usePeriod()
-const {phaseData} = storeToRefs(periodStore)
+const { phaseData } = storeToRefs(periodStore)
 
 
 let isEditable = ref(false)
@@ -59,34 +53,13 @@ function toggleEditable2() {
     isEditable.value = false;
 }
 
-const selectedOption = ref('1');  // 使用 ref 创建响应式变量
+const selectedOption = ref('0');  // 使用 ref 创建响应式变量
 const optionContent = {
     option1: '这是选项 1 的内容',
     option2: '这是选项 2 的内容',
     option3: '这是选项 3 的内容'
 }
 
-const phaseTitles = [
-    '口腔运送',
-    '软腭上抬',
-    '舌骨运动',
-    '食管上括约肌开放',
-    '咽期吞咽启动',
-    '咽腔运送',
-    '喉前庭关闭',
-    '整体吞咽',
-]
-
-// const phaseData = ref([
-//     { name: '口腔运送', period: [{ start: 3.306, end: 4.595 }, { start: 39.047, end: 39.432 }] },
-//     { name: '软腭上抬', period: [{ start: 4.347, end: 5.587 }, { start: 39.031, end: 39.486 }] },
-//     { name: '舌骨运动', period: [{ start: 4.508, end: 5.967 }, { start: 39.932, end: 40.560 }] },
-//     { name: '食管上括约肌开放', period: [{ start: 4.924, end: 5.744 }, { start: 39.927, end: 40.634 }] },
-//     { name: '咽期吞咽启动', period: [{ start: 4.659, end: 5.738 }, { start: 39.352, end: 40.673 }] },
-//     { name: '咽腔运送', period: [{ start: 4.336, end: 5.631 }, { start: 39.177, end: 40.679 }] },
-//     { name: '喉前庭关闭', period: [{ start: 4.867, end: 5.609 }, { start: 39.324, end: 41.084 }] },
-//     { name: '整体吞咽', period: [{ start: 3.306, end: 5.967 }, { start: 39.031, end: 41.084 }] }
-// ])
 
 import * as XLSX from 'xlsx';
 

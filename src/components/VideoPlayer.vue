@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <p>count:{{ Store.current }}/{{ Store.duration }}</p>
+  <div id="test">
+    <p>count:{{ counterStore.current }}/{{ counterStore.duration }}</p>
     <button @click="f">+1</button>
   </div>
   <div class="video">
@@ -27,17 +27,17 @@
 <script setup>
 import { ref } from 'vue';
 import { useCounterStore } from '@/stores/counter';
-const Store = useCounterStore()
+const counterStore = useCounterStore()
 
 const videoRef = ref();
 function sendTime() {
   const video = videoRef.value;
-  Store.increment(video.currentTime)
-  Store.setdur(video.duration)
+  counterStore.increment(video.currentTime)
+  counterStore.setdur(video.duration)
 }
 
 function f() {
-  Store.increment()
+  counterStore.increment()
 }
 </script>
 

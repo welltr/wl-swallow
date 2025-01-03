@@ -7,7 +7,6 @@
           <!-- <Test/> -->
           <!-- <CaseForm /> -->
           <SummaryReport id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" />
-          <!-- <PhaseRecognition id="PhaseRecognition" :currentTime="currentTime" :totalTime="totalTime" /> -->
           <PhaseReport/>
         </div>
       </div>
