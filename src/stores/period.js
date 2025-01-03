@@ -20,6 +20,9 @@ export const usePeriod = defineStore('period', () => {
     }))
   }))
   )
+  // function rectify(x){
+  //   phaseData
+  // }
   function increment() {
     const newData = phaseData.map(item => ({
       name: item.name,

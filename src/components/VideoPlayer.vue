@@ -1,6 +1,6 @@
 <template>
   <div id="test">
-    <p>count:{{ counterStore.current }}/{{ counterStore.duration }}</p>
+    <p>count:{{ counterStore.current }}/{{ counterStore.duration }}/{{ counterStore.testdir }}</p>
     <button @click="f">+1</button>
   </div>
   <div class="video">
