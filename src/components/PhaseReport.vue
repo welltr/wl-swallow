@@ -28,7 +28,8 @@
                 <!-- <input class="title" v-model="elem.name">{{ elem.name }}</input> -->
                 <div class="period">
                     <!-- <div class="dis" >{{ elem.period[selectedOption - 1].start.toFixed(3) }} s</div> -->
-                    <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption - 1].start"> s</input>
+                    <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption - 1].start">
+                    s</input>
                     <div style="font-weight: bold;">~</div>
                     <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption - 1].end"> s</input>
                     <!-- <div class="dis">{{ elem.period[selectedOption - 1].end.toFixed(3) }} s</div> -->
@@ -41,15 +42,16 @@
 </template>
 
 <script setup>
-import { usePeriod } from '@/stores/period';
-const Store =usePeriod()
-const phaseData=Store.phaseData
-
-
 import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
 
-let isEditable=ref(false)
-let textInput=ref('')
+import { usePeriod } from '@/stores/period';
+const periodStore = usePeriod()
+const {phaseData} = storeToRefs(periodStore)
+
+
+let isEditable = ref(false)
+let textInput = ref('')
 function toggleEditable() {
     isEditable.value = true;
 }

@@ -4,7 +4,7 @@
       <div class="left">
 
         <div class="section">
-          <Test/>
+          <!-- <Test/> -->
           <!-- <CaseForm /> -->
           <SummaryReport id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" />
           <!-- <PhaseRecognition id="PhaseRecognition" :currentTime="currentTime" :totalTime="totalTime" /> -->

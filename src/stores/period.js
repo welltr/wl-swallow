@@ -12,9 +12,9 @@ export const usePeriod = defineStore('period', () => {
     { name: '喉前庭关闭', period: [{ start: 4.867, end: 5.609 }, { start: 39.324, end: 41.084 }] },
     { name: '整体吞咽', period: [{ start: 3.306, end: 5.967 }, { start: 39.031, end: 41.084 }] }
   ])
-  const progress = computed(() => phaseData.map(item => ({
+  const areaData = computed(() => phaseData.map(item => ({
     name: item.name,
-    period: item.period.map(period => ({
+    areas: item.period.map(period => ({
       start: period.start / 48.01,
       end: period.end / 48.01
     }))
@@ -31,5 +31,5 @@ export const usePeriod = defineStore('period', () => {
     return newData
   }
 
-  return { phaseData, progress, increment }
+  return { phaseData, areaData, increment }
 })

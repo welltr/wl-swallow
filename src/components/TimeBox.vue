@@ -2,12 +2,12 @@
     <div id="app">
         <p>stat{{ countStore }}</p>
         <p>end{{ countStore.progress }}</p>
+        <p>stat{{ areaData }}</p>
         <p>myend</p>
         <!-- <VideoPlayer @child-time-change="handleTimeUpdate" /> -->
         <!-- <h1>{{ childData }}/{{ totalTime }}</h1> -->
-        <ProgressBar v-for="(item, index) in gtAreas" :key="index" class='line' :progress=progress
-            :name="item.name" :gtArea="item.areas"
-            :resultArea="resultAreas[index] === undefined ? [] : resultAreas[index].areas" />
+        <ProgressBar v-for="(item, index) in areaData" :key="index" class='line' :progress=progress :name="item.name"
+            :gtArea="item.areas" :resultArea="resultAreas[index] === undefined ? [] : resultAreas[index].areas" />
     </div>
 </template>
 
@@ -18,6 +18,10 @@ import { useCounterStore } from '@/stores/counter';
 import { storeToRefs } from 'pinia';
 const countStore = useCounterStore()
 const { progress } = storeToRefs(countStore)
+
+import { usePeriod } from '@/stores/period';
+const periodStore = usePeriod()
+const { areaData } = storeToRefs(periodStore)
 const gtAreas = reactive([
     { name: '口腔运送', areas: [{ start: 0.068884, end: 0.095740 }, { start: 0.813154697, end: 0.822642167 }] },
     { name: '软腭上抬', areas: [{ start: 0.090566, end: 0.116397 }, { start: 0.819843213, end: 0.847372293 }] },
@@ -28,7 +32,7 @@ const gtAreas = reactive([
     { name: '喉前庭关闭', areas: [{ start: 0.101415, end: 0.116859 }, { start: 0.831828117, end: 0.846544743 }] },
     { name: '整体吞咽', areas: [{ start: 0.068884, end: 0.124313 }, { start: 0.813154697, end: 0.855936527 }] }
 ])
-const resultAreas=[]
+const resultAreas = []
 
 // export default {
 //     components: {
