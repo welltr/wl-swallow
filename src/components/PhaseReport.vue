@@ -21,7 +21,7 @@
         <button @click="toggleEditable2">保存修改</button>
 
         <div class="recog">
-            <div v-for="(elem, index) in bendi" :key="index" class="recog-cls">
+            <div v-for="(elem, index) in phaseData" :key="index" class="recog-cls">
                 <div class="title">{{ elem.name }}</div>
                 <div class="period">
                     <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption].start">
@@ -53,7 +53,7 @@ function toggleEditable() {
 }
 function toggleEditable2() {
     isEditable.value = false;
-    phaseData.value=JSON.parse(JSON.stringify(bendi));
+    // phaseData.value=JSON.parse(JSON.stringify(bendi));
 }
 
 const selectedOption = ref('0');  // 使用 ref 创建响应式变量
