@@ -4,7 +4,7 @@
       <div class="left">
 
         <div class="section">
-          <Test/>
+          <!-- <Test/> -->
           <!-- <CaseForm /> -->
           <SummaryReport id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" />
           <PhaseReport/>
@@ -28,7 +28,7 @@ import SummaryReport from './components/SummaryReport.vue';
 import VideoPlayer from './components/VideoPlayer.vue';
 import Timeline from './components/TimeBox.vue';
 import PhaseReport from './components/PhaseReport.vue';
-import Test from './components/test.vue';
+import Test from './components/Test.vue';
 
 export default {
   components: {

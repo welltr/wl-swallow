@@ -1,7 +1,7 @@
 <template>
     <div class="phase-report">
         <h3 style="display:inline-block">吞咽微动作起止时间</h3>
-        <button @click="exportData">导出数据</button>
+        <button class="kaiti" style="display: none;" @click="exportData">导出数据</button>
 
         <div class="xuanze" style="display:inline-block">
             <label class='propt'>吞咽片段选择：</label>
@@ -17,17 +17,17 @@
         <p>{{textInput}}</p> -->
 
         <!-- 按钮，点击后切换文本框的可编辑状态 -->
-        <button @click="toggleEditable">修改数据</button>
-        <button @click="toggleEditable2">保存修改</button>
+        <button class="kaiti" @click="toggleEditable">修改数据</button>
+        <button class="kaiti" @click="toggleEditable2">保存修改</button>
 
         <div class="recog">
             <div v-for="(elem, index) in phaseData" :key="index" class="recog-cls">
                 <div class="title">{{ elem.name }}</div>
                 <div class="period">
-                    <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption].start">
-                    s</input>
+                    <input :class="['dis',{'no-border':!isEditable}]" :readonly="!isEditable" v-model="elem.period[selectedOption].start">
+                    </input>
                     <div style="font-weight: bold;">~</div>
-                    <input class="dis" :readonly="!isEditable" v-model="elem.period[selectedOption].end"> s</input>
+                    <input :class="['dis',{'no-border':!isEditable}]" :readonly="!isEditable" v-model="elem.period[selectedOption].end"> s</input>
                 </div>
             </div>
         </div>
@@ -102,6 +102,10 @@ function exportData() {
 
 }
 
+.kaiti{
+    font-family: 'STKaiti';
+}
+
 h3 {
     margin-bottom: 15px;
 }
@@ -157,5 +161,9 @@ h3 {
     width: 30%;
     text-align: center;
     /* flex: 1; */
+}
+
+.no-border {
+  border: none; /* 定义无边框的样式 */
 }
 </style>

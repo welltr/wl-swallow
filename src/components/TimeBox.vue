@@ -3,7 +3,7 @@
         <ProgressBar v-for="(item, index) in areaData" :key="index" class='line' :progress=progress :name="item.name"
             :gtArea="item.areas" :resultArea="resultAreas[index] === undefined ? [] : resultAreas[index].areas" />
     </div>
-    <div id="test">
+    <div id="test" style="display: none">
         <p>stat{{ countStore }}</p>
         <p>end{{ countStore.progress }}</p>
         <p>stat{{ areaData }}</p>
