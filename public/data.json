@@ -1,0 +1,139 @@
+{
+  "code": 200,
+  "data": {
+    "video_url": "xxx",
+    "video_dur": 48.01,
+    "task_id": 2025,
+    "time_info": [
+      {
+        "label_id": 1,
+        "name": "口腔运送",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 3.306,
+            "end": 4.595
+          },
+          {
+            "period_id": 2,
+            "start": 39.047,
+            "end": 39.432
+          }
+        ]
+      },
+      {
+        "label_id": 2,
+        "name": "软腭上抬",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 4.347,
+            "end": 5.587
+          },
+          {
+            "period_id": 2,
+            "start": 39.031,
+            "end": 39.486
+          }
+        ]
+      },
+      {
+        "label_id": 3,
+        "name": "舌骨运动",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 4.508,
+            "end": 5.967
+          },
+          {
+            "period_id": 2,
+            "start": 39.932,
+            "end": 40.56
+          }
+        ]
+      },
+      {
+        "label_id": 4,
+        "name": "食管上括约肌开放",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 4.924,
+            "end": 5.744
+          },
+          {
+            "period_id": 2,
+            "start": 39.927,
+            "end": 40.634
+          }
+        ]
+      },
+      {
+        "label_id": 5,
+        "name": "咽期吞咽启动",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 4.659,
+            "end": 5.738
+          },
+          {
+            "period_id": 2,
+            "start": 39.352,
+            "end": 40.673
+          }
+        ]
+      },
+      {
+        "label_id": 6,
+        "name": "咽腔运送",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 4.336,
+            "end": 5.631
+          },
+          {
+            "period_id": 2,
+            "start": 39.177,
+            "end": 40.679
+          }
+        ]
+      },
+      {
+        "label_id": 7,
+        "name": "喉前庭关闭",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 4.867,
+            "end": 5.609
+          },
+          {
+            "period_id": 2,
+            "start": 39.324,
+            "end": 41.084
+          }
+        ]
+      },
+      {
+        "label_id": 8,
+        "name": "整体吞咽",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 3.306,
+            "end": 5.967
+          },
+          {
+            "period_id": 2,
+            "start": 39.031,
+            "end": 41.084
+          }
+        ]
+      }
+    ],
+    "keypoint_info": []
+  }
+}
