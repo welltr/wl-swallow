@@ -1,30 +1,37 @@
 <template>
-    <p>test</p>
+  <p>test:{{ jsonData }}</p>
 </template>
 
-<script>
-import axios from 'axios';
+<script setup>
+import { ref } from 'vue';
+// import axios from 'axios';
 
-/**
- * 读取并解析JSON文件
- * @param {string} filePath - JSON文件路径
- * @returns {Promise<object>} 返回解析后的JS对象
- */
-async function readJsonFile(filePath) {
+const jsonData = ref(null)
+const loadJsonData1 = async () => {
   try {
-    const { data } = await axios.get(filePath);
-    return data; // 返回解析后的JS对象
+      const response = await axios.get('/data.json');
+      jsonData.value = response.data;
   } catch (error) {
-    console.error('读取文件失败:', error.message);
-    return null;
+      console.error('Failed to load JSON data:', error);
   }
 }
 
-// 使用示例
-const jsonData = await readJsonFile('./data.json');
-if (jsonData) {
-  // 直接使用解析后的JS对象
-  console.log('解析后的数据:', jsonData);
-  console.log('数据类型:', typeof jsonData);
+function loadJsonData() {
+  fetch('/data.json')
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log(data);
+      })
+      .catch(error => {
+          console.error('Error fetching data:', error);
+      });
 }
+
+
+loadJsonData();
 </script>
