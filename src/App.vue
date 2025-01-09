@@ -6,8 +6,9 @@
         <div class="section">
           <!-- <Test/> -->
           <!-- <CaseForm /> -->
+          <TFIle />
           <SummaryReport id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" />
-          <PhaseReport/>
+          <PhaseReport />
         </div>
       </div>
       <div class="right">
@@ -29,6 +30,7 @@ import VideoPlayer from './components/VideoPlayer.vue';
 import Timeline from './components/TimeBox.vue';
 import PhaseReport from './components/PhaseReport.vue';
 import Test from './components/Test.vue';
+import TFIle from './components/tFIle.vue'
 
 export default {
   components: {
@@ -38,7 +40,15 @@ export default {
     VideoPlayer,
     Timeline,
     PhaseReport,
-    Test
+    CaseForm,
+    PhaseRecognition,
+    SummaryReport,
+    VideoPlayer,
+    Timeline,
+    PhaseReport,
+    Test,
+    TFIle
+
   },
   data() {
     return {
