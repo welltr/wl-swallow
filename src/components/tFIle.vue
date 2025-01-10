@@ -1,37 +1,52 @@
 <template>
-  <p>test:{{ jsonData }}</p>
+    <div>
+        <div v-if="stateStore.isLoading">
+            Loading...
+        </div>
+        <div v-else>
+            <p>hello, let's test for 异步加载数据到全局状态</p>
+            <p>test:{{ myStore.mydata.video_url }}</p>
+            <!-- 页面内容 -->
+        </div>
+    </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-// import axios from 'axios';
+import { ref, onMounted } from 'vue';
 
-const jsonData = ref(null)
-const loadJsonData1 = async () => {
-  try {
-      const response = await axios.get('/data.json');
-      jsonData.value = response.data;
-  } catch (error) {
-      console.error('Failed to load JSON data:', error);
-  }
+// 控制网页显示“加载中”
+import { useStateStore } from '@/stores/state';
+const stateStore = useStateStore();
+onMounted(async () => {
+    await fetchData();
+    console.log('now:', myStore.mydata)
+    stateStore.loddingSuccess();
+
+});
+
+
+// 读取文件数据到全局状态
+import { usePhaseStore } from '@/stores/phase';
+const myStore = usePhaseStore()
+
+// 创建一个延迟函数
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
+async function fetchData() {
+    try {
+        const response = await fetch('/data.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const _jsonData = await response.json();
+        await delay(500);
 
-function loadJsonData() {
-  fetch('/data.json')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
-      })
-      .then(data => {
-          console.log(data);
-      })
-      .catch(error => {
-          console.error('Error fetching data:', error);
-      });
+        console.log(_jsonData);
+        myStore.updateData(_jsonData.data);
+        console.log('test', myStore.mydata)
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 }
-
-
-loadJsonData();
 </script>
