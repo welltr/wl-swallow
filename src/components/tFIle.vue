@@ -1,12 +1,11 @@
 <template>
-    <div>
+    <div style="display:none">
         <div v-if="stateStore.isLoading">
             Loading...
         </div>
         <div v-else>
             <p>hello, let's test for 异步加载数据到全局状态</p>
             <p>test:{{ myStore.mydata.video_url }}</p>
-            <!-- 页面内容 -->
         </div>
     </div>
 </template>
@@ -17,12 +16,18 @@ import { ref, onMounted } from 'vue';
 // 控制网页显示“加载中”
 import { useStateStore } from '@/stores/state';
 const stateStore = useStateStore();
-onMounted(async () => {
+async function jiazai(){
     await fetchData();
     console.log('now:', myStore.mydata)
     stateStore.loddingSuccess();
+}
+jiazai()
+// onMounted(async () => {
+//     await fetchData();
+//     console.log('now:', myStore.mydata)
+//     stateStore.loddingSuccess();
 
-});
+// });
 
 
 // 读取文件数据到全局状态
