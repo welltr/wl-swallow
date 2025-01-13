@@ -21,7 +21,7 @@
         <button class="kaiti" @click="toggleEditable2">保存修改</button>
 
         <div class="recog">
-            <div v-for="(elem, index) in phaseData" :key="index" class="recog-cls">
+            <div v-for="(elem, index) in time_info" :key="index" class="recog-cls">
                 <div class="title">{{ elem.name }}</div>
                 <div class="period">
                     <input :class="['dis',{'no-border':!isEditable}]" :readonly="!isEditable" v-model="elem.period[selectedOption].start">
@@ -40,10 +40,15 @@
 import { ref, reactive } from 'vue';
 import { storeToRefs } from 'pinia';
 
-import { usePeriod } from '@/stores/period';
-const periodStore = usePeriod()
-const { phaseData } = storeToRefs(periodStore)
-let bendi = reactive(JSON.parse(JSON.stringify(phaseData.value)));
+// import { usePeriod } from '@/stores/period';
+// const periodStore = usePeriod()
+// const { phaseData } = storeToRefs(periodStore)
+// let bendi = reactive(JSON.parse(JSON.stringify(phaseData.value)));
+
+import { usePhaseStore } from './stores/phase';
+const phaseStore = usePhaseStore()
+const { mydata,time_info } = storeToRefs(phaseStore)
+
 
 
 let isEditable = ref(false)
