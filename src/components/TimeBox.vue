@@ -20,9 +20,14 @@ import { storeToRefs } from 'pinia';
 const countStore = useCounterStore()
 const { progress } = storeToRefs(countStore)
 
-import { usePeriod } from '@/stores/period';
-const periodStore = usePeriod()
-const { areaData } = storeToRefs(periodStore)
+import { usePhaseStore } from '@/stores/phase';
+const phaseStore = usePhaseStore()
+const { mydata,areaData } = storeToRefs(phaseStore)
+
+
+// import { usePeriod } from '@/stores/period';
+// const periodStore = usePeriod()
+// const { areaData } = storeToRefs(periodStore)
 const gtAreas = reactive([
     { name: '口腔运送', areas: [{ start: 0.068884, end: 0.095740 }, { start: 0.813154697, end: 0.822642167 }] },
     { name: '软腭上抬', areas: [{ start: 0.090566, end: 0.116397 }, { start: 0.819843213, end: 0.847372293 }] },
