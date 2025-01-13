@@ -19,13 +19,22 @@ export const usePhaseStore = defineStore('phase', () => {
     console.log('after', mydata)
   }
 
-  const time_info = computed(() => phaseData.time_info)
+  const time_info = computed(() => mydata.time_info)
 
-  const areaData = computed(() => phaseData.time_info.map(item => ({
+  const time_info2 = computed(() => mydata.map(item => ({
     name: item.name,
-    areas: item.period.map(period => ({
-      start: period.start / 48.01,
-      end: period.end / 48.01
+    areas: item.period.map(e => ({
+      start: e.start / 48.01,
+      end: e.end / 48.01
+    }))
+  }))
+  )
+
+  const areaData = computed(() => mydata.time_info.map(item => ({
+    name: item.name,
+    areas: item.period.map(e => ({
+      start: e.start / 48.01,
+      end: e.end / 48.01
     }))
   }))
   )

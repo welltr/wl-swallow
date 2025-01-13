@@ -45,7 +45,7 @@ import { storeToRefs } from 'pinia';
 // const { phaseData } = storeToRefs(periodStore)
 // let bendi = reactive(JSON.parse(JSON.stringify(phaseData.value)));
 
-import { usePhaseStore } from './stores/phase';
+import { usePhaseStore } from '@/stores/phase';
 const phaseStore = usePhaseStore()
 const { mydata,time_info } = storeToRefs(phaseStore)
 
