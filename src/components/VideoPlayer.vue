@@ -12,18 +12,21 @@
 
     <!-- 视频控制按钮 -->
     <div class="video-controls">
-      <button @click="previousFrame" :class="['control-button','kaiti']">上一帧</button>
-      <div :class='["info","kaiti"]'>
-        帧: {{ currentFrame }} / {{ totalFrames }} |
+      <button @click="previousFrame" :class="['control-button', 'kaiti']">上一帧</button>
+      <button @click="nextFrame" :class="['control-button', 'kaiti']">下一帧</button>
+      <div :class='["info", "kaiti"]'>
+        帧: {{ currentFrame }} / {{ totalFrames }} ；
         时间: {{ formattedCurrentTime }} / {{ formattedDuration }}
       </div>
-      <button @click="nextFrame" :class="['control-button','kaiti']">下一帧</button>
       <br>
-
-      <input type="number" v-model="jumpToFrame" placeholder="输入帧数" />
-      <button @click="jumpToSpecificFrame" class="kaiti">跳转</button><br>
-      <input type="text" v-model="jumpToSeconds" placeholder="输入秒数" />
-      <button @click="jumpToSpecificSeconds" class="kaiti">跳转到秒数</button>
+      <div>
+        <input type="number" v-model="jumpToFrame" placeholder="输入帧数" class="kaiti"/>
+        <button @click="jumpToSpecificFrame" class="kaiti">跳转</button>
+      </div>
+      <div class="none">
+        <input type="text" v-model="jumpToSeconds" placeholder="输入秒数" />
+        <button @click="jumpToSpecificSeconds" class="kaiti">跳转到秒数</button>
+      </div>
       <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
 
     </div>
@@ -129,19 +132,31 @@ function nextFrame() {
 
 
 
-<style >
+<style>
+.none {
+  display: none;
+}
+
 .video-controls {
-  white-space: nowrap; /* 防止元素换行 */
+  white-space: nowrap;
+  /* 防止元素换行 */
   font-family: 'STKaiti';
 
 }
-.control-button, .info {
-  display: inline-block; /* 使元素在同一行显示 */
-  vertical-align: middle; /* 垂直居中对齐 */
-}
+
+.control-button,
 .info {
-  margin: 0 10px; /* 添加一些间隔 */
+  display: inline-block;
+  /* 使元素在同一行显示 */
+  vertical-align: middle;
+  /* 垂直居中对齐 */
 }
+
+.info {
+  margin: 0 10px;
+  /* 添加一些间隔 */
+}
+
 /* 视频播放器和控制样式 */
 .video {
   position: relative;
@@ -217,8 +232,9 @@ function nextFrame() {
   display: none;
 }
 
-.kaiti{
+.kaiti {
   font-family: 'STKaiti';
 }
+
 /* 可以根据需要添加更多样式 */
 </style>
