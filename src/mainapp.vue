@@ -53,12 +53,12 @@ const stateStore = useStateStore()
   display: flex;
   justify-content: space-between;
   /* padding: 1% 5%; */
-  margin: 0% 8%;
+  margin: 0% 4%;
 }
 
 .left {
   /* background-color:antiquewhite; */
-  width: 45%;
+  width: 40%;
   font-size: 19px;
 
   /* 左侧部分占 65% */
@@ -67,7 +67,7 @@ const stateStore = useStateStore()
 }
 
 .right {
-  width: 45%;
+  width: 60%;
 
   /* background-color:antiquewhite; */
   /* 右侧部分占 30% */
