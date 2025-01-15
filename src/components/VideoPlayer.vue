@@ -12,15 +12,20 @@
 
     <!-- 视频控制按钮 -->
     <div class="video-controls">
-      <button @click="previousFrame" :class="['control-button', 'kaiti']">上一帧</button>
-      <button @click="nextFrame" :class="['control-button', 'kaiti']">下一帧</button>
-      <div :class='["info", "kaiti"]'>
-        帧: {{ currentFrame }} / {{ totalFrames }} ；
-        时间: {{ formattedCurrentTime }} / {{ formattedDuration }}
-      </div>
-      <br>
       <div>
-        <input type="number" v-model="jumpToFrame" placeholder="输入帧数" class="kaiti"/>
+        <div class="anniu">
+          <button @click="previousFrame" :class="['control-button', 'kaiti']">上一帧</button>
+          <button @click="nextFrame" :class="['control-button', 'kaiti']">下一帧</button>
+        </div>
+
+        <div :class='["info", "kaiti"]'>
+          帧: {{ currentFrame }} / {{ totalFrames }} ；
+          时间: {{ formattedCurrentTime }} / {{ formattedDuration }}
+        </div>
+      </div>
+
+      <div class="tiaozhuan">
+        <input type="number" v-model="jumpToFrame" placeholder="输入帧数" class="kaiti" />
         <button @click="jumpToSpecificFrame" class="kaiti">跳转</button>
       </div>
       <div class="none">
@@ -137,13 +142,23 @@ function nextFrame() {
   display: none;
 }
 
+
+.anniu {
+  display: inline;
+  width: 50%;
+}
+
 .video-controls {
   white-space: nowrap;
   /* 防止元素换行 */
   font-family: 'STKaiti';
+  display: flex;
+  flex-direction: column
+}
+.tiaozhuan{
+  flex: 1
 
 }
-
 .control-button,
 .info {
   display: inline-block;
