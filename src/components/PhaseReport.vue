@@ -1,7 +1,7 @@
 <template>
     <div class="phase-report">
         <h3 style="display:inline-block">吞咽微动作起止时间</h3>
-        <button class="kaiti" style="display: none;" @click="exportData">导出数据</button>
+        <button class="kaiti" @click="exportData">导出数据</button>
 
         <div class="xuanze" style="display:inline-block">
             <label class='propt'>吞咽片段选择：</label>
@@ -24,10 +24,12 @@
             <div v-for="(elem, index) in time_info" :key="index" class="recog-cls">
                 <div class="title">{{ elem.name }}</div>
                 <div class="period">
-                    <input :class="['dis',{'no-border':!isEditable}]" :readonly="!isEditable" v-model="elem.period[selectedOption].start">
+                    <input :class="['dis', { 'no-border': !isEditable }]" :readonly="!isEditable"
+                        v-model="elem.period[selectedOption].start">
                     </input>
                     <div style="font-weight: bold;">~</div>
-                    <input :class="['dis',{'no-border':!isEditable}]" :readonly="!isEditable" v-model="elem.period[selectedOption].end"> s</input>
+                    <input :class="['dis', { 'no-border': !isEditable }]" :readonly="!isEditable"
+                        v-model="elem.period[selectedOption].end"> s</input>
                 </div>
             </div>
         </div>
@@ -47,7 +49,7 @@ import { storeToRefs } from 'pinia';
 
 import { usePhaseStore } from '@/stores/phase';
 const phaseStore = usePhaseStore()
-const { mydata,time_info } = storeToRefs(phaseStore)
+const { mydata, time_info } = storeToRefs(phaseStore)
 
 
 
@@ -73,7 +75,8 @@ import * as XLSX from 'xlsx';
 
 function exportData() {
     // 使用flatMap进行扁平化
-    const flattenedData = phaseData.value.flatMap(item =>
+    // const phaseData = time_info
+    const flattenedData = time_info.flatMap(item =>
         item.period.map(period => ({
             name: item.name,
             start: period.start,
@@ -107,7 +110,7 @@ function exportData() {
 
 }
 
-.kaiti{
+.kaiti {
     font-family: 'STKaiti';
 }
 
@@ -169,6 +172,7 @@ h3 {
 }
 
 .no-border {
-  border: none; /* 定义无边框的样式 */
+    border: none;
+    /* 定义无边框的样式 */
 }
 </style>

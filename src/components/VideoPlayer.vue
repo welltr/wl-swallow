@@ -12,18 +12,18 @@
 
     <!-- 视频控制按钮 -->
     <div class="video-controls">
-      <button @click="previousFrame" class="control-button">上一帧</button>
-      <div class="info">
+      <button @click="previousFrame" :class="['control-button','kaiti']">上一帧</button>
+      <div :class='["info","kaiti"]'>
         帧: {{ currentFrame }} / {{ totalFrames }} |
         时间: {{ formattedCurrentTime }} / {{ formattedDuration }}
       </div>
-      <button @click="nextFrame" class="control-button">下一帧</button>
+      <button @click="nextFrame" :class="['control-button','kaiti']">下一帧</button>
       <br>
 
       <input type="number" v-model="jumpToFrame" placeholder="输入帧数" />
-      <button @click="jumpToSpecificFrame">跳转</button><br>
+      <button @click="jumpToSpecificFrame" class="kaiti">跳转</button><br>
       <input type="text" v-model="jumpToSeconds" placeholder="输入秒数" />
-      <button @click="jumpToSpecificSeconds">跳转到秒数</button>
+      <button @click="jumpToSpecificSeconds" class="kaiti">跳转到秒数</button>
       <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
 
     </div>
@@ -129,9 +129,11 @@ function nextFrame() {
 
 
 
-<style scoped>
+<style >
 .video-controls {
   white-space: nowrap; /* 防止元素换行 */
+  font-family: 'STKaiti';
+
 }
 .control-button, .info {
   display: inline-block; /* 使元素在同一行显示 */
@@ -143,6 +145,7 @@ function nextFrame() {
 /* 视频播放器和控制样式 */
 .video {
   position: relative;
+
   /* 播放器边框圆角 */
   border-radius: 5px;
   /* 内边距设置 */
@@ -154,6 +157,8 @@ function nextFrame() {
   width: 100%;
   /* 保持与容器相同的边框圆角 */
   border-radius: 5px;
+  background-color: black;
+
 }
 
 /* 图标容器样式 */
@@ -212,5 +217,8 @@ function nextFrame() {
   display: none;
 }
 
+.kaiti{
+  font-family: 'STKaiti';
+}
 /* 可以根据需要添加更多样式 */
 </style>

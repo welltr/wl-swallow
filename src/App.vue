@@ -23,4 +23,8 @@ const stateStore = useStateStore()
 
 </script>
 
-<style></style>
+<style>
+body {
+  font-family: 'STKaiti', Arial, Helvetica, sans-serif;
+}
+</style>
