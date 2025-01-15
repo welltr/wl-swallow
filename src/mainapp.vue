@@ -3,7 +3,7 @@
     <div class="container">
       <div class="left">
         <div class="section">
-          <!-- <Test/> -->
+          <Test/>
           <!-- <CaseForm /> -->
           <SummaryReport id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" />
           <PhaseReport />
@@ -22,10 +22,10 @@
 
 <script setup>
 import SummaryReport from './components/SummaryReport.vue';
-import VideoPlayer from './components/VideoPlayer.vue';
+import VideoPlayer from './components/VideoPlayer-ys.vue';
 import Timebox from './components/TimeBox.vue';
 import PhaseReport from './components/PhaseReport.vue';
-import Test from './components/Test.vue';
+import Test from './components/Test2.vue';
 import TFIle from './components/tFIle.vue'
 
 
