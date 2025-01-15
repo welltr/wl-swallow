@@ -5,10 +5,13 @@
   </div>
   <div class="video">
     <!-- 视频播放器 -->
-    <video id="surgeryVideo" ref="videoRef" @timeupdate="sendTime" controls>
-      <source src="/final_video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <div class="video-container">
+      <video id="surgeryVideo" ref="videoRef" @timeupdate="sendTime" controls>
+        <source src="/final_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
 
     <!-- 视频控制按钮 -->
     <div class="video-controls">
@@ -133,6 +136,7 @@ function nextFrame() {
   const frameTime = 1 / frameRate;
   video.currentTime = Math.min(video.currentTime + frameTime, video.duration);
 }
+
 </script>
 
 
@@ -140,6 +144,27 @@ function nextFrame() {
 <style>
 .none {
   display: none;
+}
+
+.video-container {
+  width: 100%;
+  /* 或者具体数值，比如 600px */
+  height: 300px;
+  /* 背景的高度 */
+  background-color: black;
+  position: relative;
+}
+
+.video-container video {
+  width: 300px;
+  /* 视频宽度 */
+  /* height: 300px; */
+  /* 视频高度，与宽度相等形成正方形 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 使视频在容器内居中 */
 }
 
 
@@ -155,10 +180,11 @@ function nextFrame() {
   display: flex;
   flex-direction: column
 }
-.tiaozhuan{
-  flex: 1
 
+.tiaozhuan {
+  flex: 1
 }
+
 .control-button,
 .info {
   display: inline-block;
@@ -172,24 +198,7 @@ function nextFrame() {
   /* 添加一些间隔 */
 }
 
-/* 视频播放器和控制样式 */
-.video {
-  position: relative;
 
-  /* 播放器边框圆角 */
-  border-radius: 5px;
-  /* 内边距设置 */
-  padding: 1% 15% 0;
-}
-
-/* 视频元素样式 */
-#surgeryVideo {
-  width: 100%;
-  /* 保持与容器相同的边框圆角 */
-  border-radius: 5px;
-  background-color: black;
-
-}
 
 /* 图标容器样式 */
 #icon-container {
