@@ -11,13 +11,13 @@
         "period": [
           {
             "period_id": 1,
-            "start": 3.306,
-            "end": 4.595
+            "start": 3.31,
+            "end": 4.59
           },
           {
             "period_id": 2,
-            "start": 39.047,
-            "end": 39.432
+            "start": 39.04,
+            "end": 39.43
           }
         ]
       },
@@ -27,13 +27,13 @@
         "period": [
           {
             "period_id": 1,
-            "start": 4.347,
-            "end": 5.587
+            "start": 4.34,
+            "end": 5.58
           },
           {
             "period_id": 2,
-            "start": 39.031,
-            "end": 39.486
+            "start": 39.03,
+            "end": 39.48
           }
         ]
       },
@@ -43,12 +43,12 @@
         "period": [
           {
             "period_id": 1,
-            "start": 4.508,
-            "end": 5.967
+            "start": 4.51,
+            "end": 5.96
           },
           {
             "period_id": 2,
-            "start": 39.932,
+            "start": 39.93,
             "end": 40.56
           }
         ]
@@ -59,13 +59,13 @@
         "period": [
           {
             "period_id": 1,
-            "start": 4.924,
-            "end": 5.744
+            "start": 4.92,
+            "end": 5.74
           },
           {
             "period_id": 2,
-            "start": 39.927,
-            "end": 40.634
+            "start": 39.92,
+            "end": 40.63
           }
         ]
       },
@@ -75,13 +75,13 @@
         "period": [
           {
             "period_id": 1,
-            "start": 4.659,
-            "end": 5.738
+            "start": 4.65,
+            "end": 5.73
           },
           {
             "period_id": 2,
-            "start": 39.352,
-            "end": 40.673
+            "start": 39.35,
+            "end": 40.67
           }
         ]
       },
@@ -91,13 +91,13 @@
         "period": [
           {
             "period_id": 1,
-            "start": 4.336,
-            "end": 5.631
+            "start": 4.33,
+            "end": 5.63
           },
           {
             "period_id": 2,
-            "start": 39.177,
-            "end": 40.679
+            "start": 39.17,
+            "end": 40.67
           }
         ]
       },
@@ -107,13 +107,13 @@
         "period": [
           {
             "period_id": 1,
-            "start": 4.867,
-            "end": 5.609
+            "start": 4.86,
+            "end": 5.61
           },
           {
             "period_id": 2,
-            "start": 39.324,
-            "end": 41.084
+            "start": 39.32,
+            "end": 41.08
           }
         ]
       },
@@ -123,13 +123,13 @@
         "period": [
           {
             "period_id": 1,
-            "start": 3.306,
-            "end": 5.967
+            "start": 3.31,
+            "end": 5.96
           },
           {
             "period_id": 2,
-            "start": 39.031,
-            "end": 41.084
+            "start": 39.03,
+            "end": 41.08
           }
         ]
       }
