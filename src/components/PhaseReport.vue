@@ -1,30 +1,24 @@
 <template>
     <div class="phase-report">
-        <h3 style="display:inline-block">吞咽微动作起止时间</h3>
-        <br>
-
-
-        <div class="box">
-            <div class="xuanze">
-                <label class='propt'>吞咽片段选择：</label>
-                <select v-model="selectedOption" id="dropdown">
-                    <option value="0">第 1 口</option>
-                    <option value="1">第 2 口</option>
-                </select>
+        <div class="flex-container-middle">
+            <h3 style="display:inline-block">吞咽微动作起止时间</h3>
+            <div class="flex-container">
+                <div class="xuanze">
+                    <label class='propt'>吞咽片段选择：</label>
+                    <select v-model="selectedOption" id="dropdown">
+                        <option value="0">第 1 口</option>
+                        <option value="1">第 2 口</option>
+                    </select>
+                </div>
             </div>
+        </div>
 
+        <div class="flex-container-middle">
+            <button class="kaiti anniu" @click="toggleEditable">修改数据</button>
+            <button class="kaiti anniu" @click="toggleEditable2">保存修改</button>
             <button class="kaiti anniu" @click="exportData">导出数据</button>
 
         </div>
-        <div class="box">
-            <button class="kaiti anniu" @click="toggleEditable">修改数据</button>
-            <button class="kaiti anniu" @click="toggleEditable2">保存修改</button>
-        </div>
-
-
-
-
-        <!-- 按钮，点击后切换文本框的可编辑状态 -->
 
 
 
@@ -117,9 +111,24 @@ function exportData() {
     font-family: 'STKaiti';
 
 }
+.flex-container-middle{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 5px;
+}
+.flex-container {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: flex-end;
+    /* justify-content: space-around; */
+}
+
 
 .kaiti {
     font-family: 'STKaiti';
+    font-size: 19px;
 }
 
 h3 {
@@ -133,29 +142,15 @@ h3 {
 }
 
 .xuanze {
-    width: 60%;
+    /* width: 60%; */
     margin-bottom: 10px;
     /* background-color: antiquewhite; */
     /* display: inline-flex; */
 
 }
 
-.anniu {
-    width: 30%;
-    font-family: 'STKaiti';
-    font-size: 18px;
-    margin: 0 2%;
-    display: inline-block;
-    /* flex: 1; */
 
-}
 
-.propt {
-    width: 80%;
-    /* flex: 1; */
-    /* background-color: antiquewhite; */
-
-}
 
 #dropdown {
     /* background-color: antiquewhite; */
@@ -173,6 +168,8 @@ h3 {
 .recog-cls {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
     margin-bottom: 10px;
 }
 
@@ -185,14 +182,15 @@ h3 {
 .period {
     /* background-color: lightgray; */
     /* width:60%; */
-    flex: 1;
+    flex: 3;
     display: flex;
+    justify-content: flex-end;
 
 }
 
 .dis {
     /* background-color: aqua; */
-    width: 30%;
+    /* width: 30%; */
     text-align: center;
     /* flex: 1; */
 }

@@ -5,40 +5,45 @@
   </div>
   <div class="video">
     <!-- 视频播放器 -->
-    <div >
-      <video-player src="/final_video.mp4" :options="playerOptions" ref="videoRef" @timeupdate="sendTime($event)" />
+    <div>
+      <video-player ref="videoRef" src="/final_video.mp4" :options="playerOptions" @play="onPlayerPlay($event,$state)"
+        @pause="onPlayerPause($event)" @timeupdate="onTimeUpdate($event)" />
     </div>
-    <!-- <div class="video-container">
-      <video id="surgeryVideo" ref="videoRef" @timeupdate="sendTime" controls>
-        <source src="/final_video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div> -->
 
+    <!-- <video-player ref="videoRef" src="/final_video.mp4" :options="playerOptions">
+      <template v-slot="{ player, state }">
+        <div class="custom-player-controls">
+          <button @click="state.playing ? player.pause() : player.play()">
+            {{ state.playing ? 'Pause' : 'Play' }}
+          </button>
+          <button @click="player.muted(!state.muted)">
+            {{ state.muted ? 'UnMute' : 'Mute' }}
+          </button>
+          <div class="yanse">test,{{ state.currentTime }}</div>
+        </div>
+      </template>
+    </video-player> -->
 
     <!-- 视频控制按钮 -->
-    <!-- <div class="video-controls"> -->
-    <div class="none">
-      <div>
-        <div class="anniu">
-          <button @click="previousFrame" :class="['control-button', 'kaiti']">上一帧</button>
-          <button @click="nextFrame" :class="['control-button', 'kaiti']">下一帧</button>
-        </div>
-
-        <div :class='["info", "kaiti"]'>
-          帧: {{ currentFrame }} / {{ totalFrames }} ；
-          时间: {{ formattedCurrentTime }} / {{ formattedDuration }}
-        </div>
-      </div>
-
-      <div class="tiaozhuan">
+    <div class="video-controls">
+      <!-- <div class="none"> -->
+      <div class="flex-container">
+        <!-- <span>输入帧数</span> -->
+        <button @click="previousFrame" :class="['control-button', 'kaiti']">上一帧</button>
         <input type="number" v-model="jumpToFrame" placeholder="输入帧数" class="kaiti" />
         <button @click="jumpToSpecificFrame" class="kaiti">跳转</button>
+        <button @click="nextFrame" :class="['control-button', 'kaiti']">下一帧</button>
       </div>
-      <div class="none">
+      <div :class='["info", "kaiti"]'>
+        帧: {{ currentFrame }} / {{ totalFrames }} ；
+        时间: {{ formattedCurrentTime }} / {{ formattedDuration }}
+      </div>
+
+
+      <!-- <div class="none">
         <input type="text" v-model="jumpToSeconds" placeholder="输入秒数" />
         <button @click="jumpToSpecificSeconds" class="kaiti">跳转到秒数</button>
-      </div>
+      </div> -->
       <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
 
     </div>
@@ -77,6 +82,21 @@ const counterStore = useCounterStore();
 
 // 视频相关引用和变量
 const videoRef = ref();
+function onPlayerPlay(player) {
+  console.log('player play!', player)
+}
+function onPlayerPause(player) {
+  console.log('player pause!', player)
+
+}
+
+function onTimeUpdate(player,state) {
+  console.log('onTimeUpdate!', player)
+  console.log('onTimeUpdate!', state.currentTime)
+
+}
+
+
 const frameRate = 30; // 视频帧率
 
 // 计算属性
@@ -94,9 +114,9 @@ function formatTime(time) {
 
 // 时间更新处理函数
 function sendTime() {
-  const player = videoRef.value.player;
-  counterStore.increment(player.currentTime());
-  counterStore.setdur(player.duration());
+  // const player = VideoPlayer.value.player;
+  // counterStore.increment(player.currentTime());
+  // counterStore.setdur(player.duration());
 }
 
 // 其他功能函数
@@ -149,10 +169,11 @@ const jumpToSeconds = ref('');
 
 // 逐帧控制函数
 function previousFrame() {
-  const player = videoRef.value.player;
-  player.pause();
-  const frameTime = 1 / frameRate;
-  player.currentTime(Math.max(player.currentTime() - frameTime, 0));
+  // console.log(videoRef)
+  const value = videoRef.value;
+  console.log(value.$player)
+  // const frameTime = 1 / frameRate;
+  // player.currentTime(Math.max(player.currentTime() - frameTime, 0));
 }
 
 function nextFrame() {
@@ -166,9 +187,13 @@ function nextFrame() {
 
 
 
-<style>
+<style scoped>
 .none {
   display: none;
+}
+
+.yanse{
+  background-color: #3fbb94;
 }
 
 .video-container {
@@ -178,32 +203,44 @@ function nextFrame() {
   /* 背景的高度 */
 }
 
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
 
 
 .anniu {
-  display: inline;
-  width: 50%;
+  background-color: purple;
+  margin: 10% 10%;
+
+  /* display: inline;
+  width: 50%; */
+  /* flex: 1 */
 }
 
 .video-controls {
-  white-space: nowrap;
-  /* 防止元素换行 */
+  /* background-color: aqua; */
   font-family: 'STKaiti';
   display: flex;
+  align-items: center;
+  justify-content: center;
   /* flex-direction: column; */
-  justify-content: space-between;
+  /* justify-content: space-between; */
 
 }
 
 .tiaozhuan {
+  background-color: yellowgreen;
   flex: 1
 }
 
 .control-button,
 .info {
-  display: inline-block;
+  /* display: inline-block; */
   /* 使元素在同一行显示 */
-  vertical-align: middle;
+  /* vertical-align: middle; */
   /* 垂直居中对齐 */
 }
 
@@ -272,6 +309,7 @@ function nextFrame() {
 
 .kaiti {
   font-family: 'STKaiti';
+  font-size: 16px;
 }
 
 /* 可以根据需要添加更多样式 */
