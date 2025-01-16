@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div class="label">{{ name }}</div>
         <div class="line" ref="line">
             <div class="long" />
@@ -68,12 +68,18 @@ export default {
 </script>
 
 <style scoped>
+.container{
+    display: flex;
+    width: 100%;
+
+}
 .label {
     /* background-color:beige; */
 
-    position: absolute;
-    margin-left: -210px;
-    width: 200px;
+    /* position: absolute; */
+    margin-left: -5%;
+    margin-right: 1%;
+    width: 30%;
     text-align: right;
     font-family: 'STKaiti';
     font-size: 20px;

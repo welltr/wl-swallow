@@ -3,12 +3,13 @@
     <div class="container">
       <div class="left">
         <div class="section">
-          <Test/>
+          <!-- <Test /> -->
           <!-- <CaseForm /> -->
           <SummaryReport id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" />
           <PhaseReport />
         </div>
       </div>
+      <div class="middle"></div>
       <div class="right">
         <div class="section">
           <VideoPlayer id='VideoPlayer' @child-time-change="handleTimeUpdate" />
@@ -53,7 +54,7 @@ const stateStore = useStateStore()
   display: flex;
   justify-content: space-between;
   /* padding: 1% 5%; */
-  margin: 0% 4%;
+  margin: 1% 4%;
 }
 
 .left {
@@ -65,13 +66,16 @@ const stateStore = useStateStore()
   /* padding-left: 20px; */
 
 }
+.middle{
+  width: 5%;
 
+}
 .right {
-  width: 60%;
+  width: 55%;
 
   /* background-color:antiquewhite; */
   /* 右侧部分占 30% */
-  margin-left: 18%;
+  /* margin-left: 18%; */
   margin-top: 0%;
 
 }

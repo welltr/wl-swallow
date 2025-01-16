@@ -17,7 +17,8 @@
 
 
     <!-- 视频控制按钮 -->
-    <div class="video-controls">
+    <!-- <div class="video-controls"> -->
+    <div class="none">
       <div>
         <div class="anniu">
           <button @click="previousFrame" :class="['control-button', 'kaiti']">上一帧</button>
@@ -92,11 +93,10 @@ function formatTime(time) {
 }
 
 // 时间更新处理函数
-function sendTime(player) {
-  // const video = videoRef.value;
-  counterStore.increment(player.cache_.currentTime);
-  // counterStore.setdur(video.duration);
-  counterStore.setdur('48.01');
+function sendTime() {
+  const player = videoRef.value.player;
+  counterStore.increment(player.currentTime());
+  counterStore.setdur(player.duration());
 }
 
 // 其他功能函数
@@ -110,7 +110,7 @@ function f() {
  * 跳转到视频的指定帧
  */
 function jumpToSpecificFrame() {
-  const video = videoRef.value;
+  const player = videoRef.value.player;
   const frameTime = 1 / frameRate;
   const targetFrame = parseInt(jumpToFrame.value, 10);
 
@@ -123,7 +123,7 @@ function jumpToSpecificFrame() {
   // 清除错误消息并跳转
   errorMessage.value = '';
   const targetTime = (targetFrame - 1) * frameTime;
-  video.currentTime = Math.min(Math.max(targetTime, 0), video.duration);
+  player.currentTime(Math.min(Math.max(targetTime, 0), player.duration()));
 }
 // 视频帧跳转逻辑，响应式变量定义
 const jumpToFrame = ref(0); // 用户输入帧数
@@ -149,17 +149,17 @@ const jumpToSeconds = ref('');
 
 // 逐帧控制函数
 function previousFrame() {
-  const video = videoRef.value;
-  video.pause();
+  const player = videoRef.value.player;
+  player.pause();
   const frameTime = 1 / frameRate;
-  video.currentTime = Math.max(video.currentTime - frameTime, 0);
+  player.currentTime(Math.max(player.currentTime() - frameTime, 0));
 }
 
 function nextFrame() {
-  const video = videoRef.value;
-  video.pause();
+  const player = videoRef.value.player;
+  player.pause();
   const frameTime = 1 / frameRate;
-  video.currentTime = Math.min(video.currentTime + frameTime, video.duration);
+  player.currentTime(Math.min(player.currentTime() + frameTime, player.duration()));
 }
 
 </script>
