@@ -1,10 +1,8 @@
 <template>
-  <div id="app">
+  <!-- <div id="app">
     <div class="container">
       <div class="left">
         <div class="section">
-          <!-- <Test /> -->
-          <!-- <CaseForm /> -->
           <SummaryReport id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" />
           <PhaseReport />
         </div>
@@ -13,8 +11,32 @@
       <div class="right">
         <div class="section">
           <VideoPlayer id='VideoPlayer' @child-time-change="handleTimeUpdate" />
-          <!-- <p>Time: {{ currentTime }}/{{ totalTime }}/{{ progress }}</p> -->
           <Timebox id="Timeline" :progress="progress" />
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div id="app">
+    <div class="containbig">
+      <div class="half1">
+        <div class="ctn">
+          <SummaryReport class="ctn1" id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" />
+        </div>
+
+        <div class="ctn">
+          <PhaseReport class="ctn1" />
+        </div>
+
+      </div>
+      <div class="half2">
+        <div class="ctn">
+          <VideoPlayer class="ctn1" id='VideoPlayer' @child-time-change="handleTimeUpdate" />
+        </div>
+
+        <div class="ctn">
+          <Timebox class="ctn1" id="Timeline" :progress="progress" />
+
         </div>
       </div>
     </div>
@@ -35,63 +57,44 @@ const stateStore = useStateStore()
 
 </script>
 
-<style>
-/* #app {
-      background-color: azure;
-      font-family: Avenir, Helvetica, Arial, sans - serif;
-      text-align: center;
-      color: #2c3e50;
-  } */
-
-
-/* Global Styles for the layout */
-.container {
-  /* background-color:azure; */
-  /* font-family: Avenir, Helvetica, Arial, sans - serif; */
-  font-family: 'STKaiti';
-  /* font-size: 20px; */
+<style scoped>
+.containbig {
+  background-color: aliceblue;
+  /* height: 2000px; */
 
   display: flex;
-  justify-content: space-between;
-  /* padding: 1% 5%; */
-  margin: 1% 4%;
+  padding: 1%
 }
 
-.left {
-  /* background-color:antiquewhite; */
-  width: 40%;
-  font-size: 19px;
+.half1 {
+  background-color: yellowgreen;
+  flex: 1;
 
-  /* 左侧部分占 65% */
-  /* padding-left: 20px; */
-
-}
-.middle{
-  width: 5%;
-
-}
-.right {
-  width: 55%;
-
-  /* background-color:antiquewhite; */
-  /* 右侧部分占 30% */
-  /* margin-left: 18%; */
-  margin-top: 0%;
-
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
 }
 
-.section {
-  margin-bottom: 20px;
-  /* 给每个组件之间添加一些间距 */
+.half2 {
+  background-color: yellow;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
 }
 
-#Timeline {
-  /* background-color:antiquewhite; */
-  margin-top: 7%;
+.ctn {
+  background-color: aquamarine;
+  flex: 1;
+  margin: 2%;
+
 }
 
-/* #VideoPlayer {
-  } */
+.ctn1 {
+  background-color: whitesmoke;
+  height: 100%;
+}
+
 
 /* 响应式调整: 当屏幕宽度小于768px时，变成竖向布局 */
 @media (max-width: 768px) {
