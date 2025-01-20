@@ -43,6 +43,7 @@
   </div>
 </template>
 
+
 <script setup>
 import SummaryReport from './components/SummaryReport.vue';
 import VideoPlayer from './components/VideoPlayer-ys.vue';
@@ -57,6 +58,7 @@ const stateStore = useStateStore()
 
 </script>
 
+
 <style scoped>
 .containbig {
   background-color: aliceblue;
@@ -68,7 +70,7 @@ const stateStore = useStateStore()
 
 .half1 {
   background-color: yellowgreen;
-  flex: 1;
+  flex: 4;
 
   display: flex;
   flex-direction: column;
@@ -77,7 +79,7 @@ const stateStore = useStateStore()
 
 .half2 {
   background-color: yellow;
-  flex: 1;
+  flex: 5;
 
   display: flex;
   flex-direction: column;
