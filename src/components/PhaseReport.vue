@@ -1,11 +1,11 @@
 <template>
-    <div class="phase-report">
+    <div class="containbig">
         <div class="flex-container-middle">
-            <h3 style="display:inline-block">吞咽微动作起止时间</h3>
-            <div class="flex-container">
-                <div class="xuanze">
-                    <label class='propt'>吞咽片段选择：</label>
-                    <select v-model="selectedOption" id="dropdown">
+            <h3 class="kaiti">吞咽微动作起止时间</h3>
+            <div class="flex-container-right">
+                <div class="kaiti">
+                    <label>吞咽片段选择：</label>
+                    <select v-model="selectedOption" class="kaiti" id="dropdown">
                         <option value="0">第 1 口</option>
                         <option value="1">第 2 口</option>
                     </select>
@@ -24,13 +24,13 @@
 
         <div class="recog">
             <div v-for="(elem, index) in time_info" :key="index" class="recog-cls">
-                <div class="title">{{ elem.name }}</div>
+                <div class="title kaiti">{{ elem.name }}</div>
+
                 <div class="period">
-                    <input :class="['dis', { 'no-border': !isEditable }]" :readonly="!isEditable"
-                        v-model="elem.period[selectedOption].start">
-                    </input>
+                    <input :class="['dis', 'kaiti', { 'no-border': !isEditable }]" :readonly="!isEditable"
+                        v-model="elem.period[selectedOption].start" />
                     <div style="font-weight: bold;">~</div>
-                    <input :class="['dis', { 'no-border': !isEditable }]" :readonly="!isEditable"
+                    <input :class="['dis', 'kaiti', { 'no-border': !isEditable }]" :readonly="!isEditable"
                         v-model="elem.period[selectedOption].end"> s</input>
                 </div>
             </div>
@@ -39,6 +39,7 @@
 
 
 </template>
+
 
 <script setup>
 import { ref, reactive } from 'vue';
@@ -96,12 +97,35 @@ function exportData() {
 
     // 生成Excel文件
     XLSX.writeFile(wb, '导出的数据.xlsx');
-
 }
 
 </script>
 
+
+
 <style scoped>
+.containbig {
+    background-color: aliceblue;
+    margin: auto 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.flex-container-middle {
+    flex: 1;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.anniu {
+    /* flex:1; */
+    padding: 0 5%;
+}
+
+
 .phase-report {
     background: #fff;
     padding: 1% 5%;
@@ -111,18 +135,10 @@ function exportData() {
     font-family: 'STKaiti';
 
 }
-.flex-container-middle{
-    /* background-color: aqua; */
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 5px;
-}
-.flex-container {
-    /* background-color: aqua; */
+
+.flex-container-right {
     display: flex;
     justify-content: flex-end;
-    /* justify-content: space-around; */
 }
 
 
@@ -131,46 +147,22 @@ function exportData() {
     font-size: 19px;
 }
 
-h3 {
-    margin-bottom: 15px;
-}
 
-.box {
+.recog {
+    flex: 8;
     display: flex;
-    justify-content: space-between;
-
+    flex-direction: column;
+    justify-content: space-between
 }
 
-.xuanze {
-    /* width: 60%; */
-    margin-bottom: 10px;
-    /* background-color: antiquewhite; */
-    /* display: inline-flex; */
-
-}
-
-
-
-
-#dropdown {
-    /* background-color: antiquewhite; */
-    /* flex: 1; */
-    left: 10%;
-    font-family: 'STKaiti';
-    font-size: 19px;
-    /* position: absolute; */
-}
-
-/* .recog {
-  display: flex;
-  flex-direction: column;
-} */
 .recog-cls {
+    flex: 1;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .title {
@@ -181,18 +173,19 @@ h3 {
 
 .period {
     /* background-color: lightgray; */
-    /* width:60%; */
-    flex: 3;
+    flex: 1;
+    
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 
 }
 
 .dis {
     /* background-color: aqua; */
-    /* width: 30%; */
+    width: 30%;
+    margin: 0 5%;
     text-align: center;
-    /* flex: 1; */
+    flex: 1;
 }
 
 .no-border {
