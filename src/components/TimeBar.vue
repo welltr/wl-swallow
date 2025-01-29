@@ -75,14 +75,14 @@ export default {
 }
 .label {
     /* background-color:beige; */
-
     /* position: absolute; */
-    margin-left: -5%;
-    margin-right: 1%;
-    width: 30%;
-    text-align: right;
+    flex:1;
+    /* margin-left: -5%; */
+    /* margin-right: 1%; */
+    /* width: 40%; */
+    text-align: left;
     font-family: 'STKaiti';
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -103,7 +103,8 @@ export default {
 
 .line {
     /* background-color: azure; */
-    width: 100%;
+    flex:3.5;
+    /* width: 100%; */
     /* left: 5%; */
 
     height: 20px;
