@@ -19,7 +19,7 @@
 
   <div id="app">
     <div class="containbig">
-      <div class="half1">
+      <div class="half1 ">
         <div class="ctn shadow-box">
           <SummaryReport class="ctn1" id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" />
         </div>
@@ -61,6 +61,9 @@ const stateStore = useStateStore()
 
 
 <style scoped>
+.none{
+  display: none;
+}
 .containbig {
   /* background-color: aliceblue; */
   /* height: 2000px; */
@@ -93,7 +96,7 @@ const stateStore = useStateStore()
 .ctn {
   /* background-color: aquamarine; */
   flex: 1;
-  margin: 2%;
+  margin:1% 2%;
 
 }
 

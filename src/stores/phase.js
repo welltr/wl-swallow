@@ -5,6 +5,7 @@ import { defineStore } from 'pinia'
 const expdata = {
   "video_url": '空无一物',
   "task_id": '啥也没有',
+  "video_dur": 600.0,
   "time_info": []
 }
 
@@ -21,20 +22,11 @@ export const usePhaseStore = defineStore('phase', () => {
 
   const time_info = computed(() => mydata.time_info)
 
-  const time_info2 = computed(() => mydata.map(item => ({
-    name: item.name,
-    areas: item.period.map(e => ({
-      start: e.start / 48.01,
-      end: e.end / 48.01
-    }))
-  }))
-  )
-
   const areaData = computed(() => mydata.time_info.map(item => ({
     name: item.name,
     areas: item.period.map(e => ({
-      start: e.start / 48.01,
-      end: e.end / 48.01
+      start: e.start / mydata.video_dur,
+      end: e.end / mydata.video_dur
     }))
   }))
   )
