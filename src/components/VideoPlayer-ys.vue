@@ -5,10 +5,14 @@
   </div>
   <div class="video">
     <!-- 视频播放器 -->
-    <div>
-      <video-player ref="videoRef" src="/final_video.mp4" :options="playerOptions" @play="onPlayerPlay($event,$state)"
+    <video controls class="ctn" ref="videoRef" @timeupdate="sendTime">
+      不在video元素书写src 在source元素书写
+      <source class="vd"  src="/final_video.mp4">
+    </video>
+    <!-- <div>
+      <video-player ref="videoRef" src="/final_video.mp4" :options="playerOptions" @play="onPlayerPlay($event, $state)"
         @pause="onPlayerPause($event)" @timeupdate="onTimeUpdate($event)" />
-    </div>
+    </div> -->
 
     <!-- <video-player ref="videoRef" src="/final_video.mp4" :options="playerOptions">
       <template v-slot="{ player, state }">
@@ -22,10 +26,10 @@
           <div class="yanse">test,{{ state.currentTime }}</div>
         </div>
       </template>
-    </video-player> -->
+</video-player> -->
 
     <!-- 视频控制按钮 -->
-    <div class="video-controls">
+    <div class="video-controls" style="display: none;">
       <!-- <div class="none"> -->
       <div class="flex-container">
         <!-- <span>输入帧数</span> -->
@@ -90,10 +94,13 @@ function onPlayerPause(player) {
 
 }
 
-function onTimeUpdate(player,state) {
+function onTimeUpdate(player, state) {
   console.log('onTimeUpdate!', player)
-  console.log('onTimeUpdate!', state.currentTime)
-
+  console.log('onTimeUpdate!', videoRef.value.currentTime)
+  // console.log('onTimeUpdate!', state.currentTime)
+  const { currentTime, duration } = player;
+  console.log('onTimeUpdate! start:', currentTime, duration)
+  console.log('end')
 }
 
 
@@ -114,9 +121,9 @@ function formatTime(time) {
 
 // 时间更新处理函数
 function sendTime() {
-  // const player = VideoPlayer.value.player;
-  // counterStore.increment(player.currentTime());
-  // counterStore.setdur(player.duration());
+  const video = videoRef.value;
+  counterStore.increment(video.currentTime);
+  counterStore.setdur(video.duration);
 }
 
 // 其他功能函数
@@ -192,7 +199,20 @@ function nextFrame() {
   display: none;
 }
 
-.yanse{
+.ctn {
+  background-color: black;
+  height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.vd {
+  height: 100%;
+}
+
+.yanse {
   background-color: #3fbb94;
 }
 

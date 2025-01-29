@@ -29,6 +29,7 @@
         </div>
 
       </div>
+      <div class="middle" />
       <div class="half2">
         <div class="ctn">
           <VideoPlayer class="ctn1" id='VideoPlayer' @child-time-change="handleTimeUpdate" />
@@ -61,7 +62,7 @@ const stateStore = useStateStore()
 
 <style scoped>
 .containbig {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   /* height: 2000px; */
 
   display: flex;
@@ -69,7 +70,7 @@ const stateStore = useStateStore()
 }
 
 .half1 {
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
   flex: 4;
 
   display: flex;
@@ -77,8 +78,12 @@ const stateStore = useStateStore()
   /* justify-content: space-between; */
 }
 
+.middle {
+  flex: 0.5
+}
+
 .half2 {
-  background-color: yellow;
+  /* background-color: yellow; */
   flex: 5;
 
   display: flex;
@@ -86,14 +91,14 @@ const stateStore = useStateStore()
 }
 
 .ctn {
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   flex: 1;
   margin: 2%;
 
 }
 
 .ctn1 {
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   height: 100%;
 }
 
@@ -101,7 +106,7 @@ const stateStore = useStateStore()
 
 .shadow-box {
   /* background: #fff; */
-  background:blueviolet;
+  /* background:blueviolet; */
   padding: 1% 5%;
   /* margin-bottom: 10px; */
   border-radius: 8px;
