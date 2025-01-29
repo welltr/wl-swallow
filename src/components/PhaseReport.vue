@@ -105,8 +105,7 @@ function exportData() {
 
 <style scoped>
 .containbig {
-    background-color: aliceblue;
-    margin: auto 5%;
+    /* margin: auto 5%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between
@@ -127,7 +126,7 @@ function exportData() {
 
 
 .phase-report {
-    background: #fff;
+    background: black;
     padding: 1% 5%;
     /* margin-bottom: 20px; */
     border-radius: 8px;

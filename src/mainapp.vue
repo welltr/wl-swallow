@@ -20,11 +20,11 @@
   <div id="app">
     <div class="containbig">
       <div class="half1">
-        <div class="ctn">
+        <div class="ctn shadow-box">
           <SummaryReport class="ctn1" id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" />
         </div>
 
-        <div class="ctn">
+        <div class="ctn shadow-box">
           <PhaseReport class="ctn1" />
         </div>
 
@@ -95,6 +95,17 @@ const stateStore = useStateStore()
 .ctn1 {
   background-color: whitesmoke;
   height: 100%;
+}
+
+
+
+.shadow-box {
+  /* background: #fff; */
+  background:blueviolet;
+  padding: 1% 5%;
+  /* margin-bottom: 10px; */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 
