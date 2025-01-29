@@ -1,0 +1,91 @@
+{
+  "code": 200,
+  "data": {
+    "video_url": "xxx",
+    "video_dur": 31.0,
+    "task_id": 2025,
+    "time_info": [
+      {
+        "label_id": 1,
+        "name": "Oral Transit",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 13.247,
+            "end": 13.613
+          }
+        ]
+      },
+      {
+        "label_id": 2,
+        "name": "Soft Palate Elevation",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 13.285,
+            "end": 14.404
+          }
+        ]
+      },
+      {
+        "label_id": 3,
+        "name": "Hyoid Motion",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 13.55,
+            "end": 14.856
+          }
+
+        ]
+      },
+      {
+        "label_id": 4,
+        "name": "UES Opening",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 13.733,
+            "end": 14.492
+          }
+        ]
+      },
+      {
+        "label_id": 5,
+        "name":"Swallow Initiation",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 13.473,
+            "end": 13.617
+          }
+        ]
+      },
+      {
+        "label_id": 6,
+        "name": "Pharyngeal Transit",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 13.56,
+            "end": 14.551
+          }
+
+        ]
+      },
+      {
+        "label_id": 7,
+        "name": "Laryngeal Vestibule Closure",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 13.685,
+            "end": 14.333
+          }
+
+        ]
+      }
+    ],
+    "keypoint_info": []
+  }
+}

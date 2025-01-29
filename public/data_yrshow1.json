@@ -1,0 +1,123 @@
+{
+  "code": 200,
+  "data": {
+    "video_url": "xxx",
+    "video_dur": 48.01,
+    "task_id": 2025,
+    "time_info": [
+      {
+        "label_id": 1,
+        "name": "Oral Transit",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 3.31,
+            "end": 4.59
+          },
+          {
+            "period_id": 2,
+            "start": 39.04,
+            "end": 39.43
+          }
+        ]
+      },
+      {
+        "label_id": 2,
+        "name": "Soft Palate Elevation",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 4.34,
+            "end": 5.58
+          },
+          {
+            "period_id": 2,
+            "start": 39.03,
+            "end": 39.48
+          }
+        ]
+      },
+      {
+        "label_id": 3,
+        "name": "Hyoid Motion",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 4.51,
+            "end": 5.96
+          },
+          {
+            "period_id": 2,
+            "start": 39.93,
+            "end": 40.56
+          }
+        ]
+      },
+      {
+        "label_id": 4,
+        "name": "UES Opening",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 4.92,
+            "end": 5.74
+          },
+          {
+            "period_id": 2,
+            "start": 39.92,
+            "end": 40.63
+          }
+        ]
+      },
+      {
+        "label_id": 5,
+        "name":"Swallow Initiation",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 4.65,
+            "end": 5.73
+          },
+          {
+            "period_id": 2,
+            "start": 39.35,
+            "end": 40.67
+          }
+        ]
+      },
+      {
+        "label_id": 6,
+        "name": "Pharyngeal Transit",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 4.33,
+            "end": 5.63
+          },
+          {
+            "period_id": 2,
+            "start": 39.17,
+            "end": 40.67
+          }
+        ]
+      },
+      {
+        "label_id": 7,
+        "name": "Laryngeal Vestibule Closure",
+        "period": [
+          {
+            "period_id": 1,
+            "start": 4.86,
+            "end": 5.61
+          },
+          {
+            "period_id": 2,
+            "start": 39.32,
+            "end": 41.08
+          }
+        ]
+      }
+    ],
+    "keypoint_info": []
+  }
+}
