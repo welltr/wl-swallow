@@ -155,13 +155,13 @@ export default {
 </script>
 
 <style scoped>
-.summary-report {
+/* .summary-report {
   background: #fff;
   padding: 1% 5%;
   margin-bottom: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+} */
 
 h3 {
   margin-bottom: 15px;

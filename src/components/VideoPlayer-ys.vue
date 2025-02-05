@@ -29,7 +29,7 @@
 </video-player> -->
 
     <!-- 视频控制按钮 -->
-    <div class="video-controls" style="display: none;">
+    <div class="video-controls">
       <!-- <div class="none"> -->
       <div class="flex-container">
         <!-- <span>输入帧数</span> -->
@@ -184,10 +184,10 @@ function previousFrame() {
 }
 
 function nextFrame() {
-  const player = videoRef.value.player;
-  player.pause();
+  const video = videoRef.value;
+  video.pause();
   const frameTime = 1 / frameRate;
-  player.currentTime(Math.min(player.currentTime() + frameTime, player.duration()));
+  video.currentTime=Math.min(video.currentTime + frameTime, video.duration);
 }
 
 </script>
