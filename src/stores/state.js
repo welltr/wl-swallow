@@ -5,9 +5,11 @@ import { defineStore } from 'pinia'
 export const useStateStore = defineStore('state', () => {
     const isLoading = ref(true);
 
+    const selectedKou = ref('0')
+
     function loddingSuccess(newValue = true) {
         isLoading.value = !newValue
 
     }
-    return { isLoading, loddingSuccess }
+    return { isLoading, selectedKou, loddingSuccess }
 })

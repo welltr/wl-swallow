@@ -21,12 +21,14 @@
     <div class="containbig">
       <div class="half1 ">
         <div class="ctn shadow-box">
-          <SummaryReport class="ctn1" id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" />
-        </div>
-
-        <div class="ctn shadow-box">
           <PhaseReport class="ctn1" />
         </div>
+        <div class="ctn shadow-box">
+          <guanjiandian></guanjiandian>
+          <!-- <SummaryReport class="ctn1" id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" /> -->
+        </div>
+
+
 
       </div>
       <div class="middle" />
@@ -52,6 +54,7 @@ import Timebox from './components/TimeBox.vue';
 import PhaseReport from './components/PhaseReport.vue';
 import Test from './components/Test2.vue';
 import TFIle from './components/tFIle.vue'
+import guanjiandian from './components/guanjiandian.vue';
 
 
 import { useStateStore } from './stores/state';

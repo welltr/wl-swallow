@@ -5,7 +5,7 @@
             <div class="flex-container-right">
                 <div class="kaiti">
                     <label>吞咽片段选择：</label>
-                    <select v-model="selectedOption" class="kaiti" id="dropdown">
+                    <select v-model="selectedKou" class="kaiti" id="dropdown">
                         <option value="0">第 1 口</option>
                         <option value="1">第 2 口</option>
                     </select>
@@ -28,10 +28,10 @@
 
                 <div class="period">
                     <input :class="['dis', 'kaiti', { 'no-border': !isEditable }]" :readonly="!isEditable"
-                        v-model="elem.period[selectedOption].start" />
+                        v-model="elem.period[selectedKou].start" />
                     <div style="font-weight: bold;">~</div>
                     <input :class="['dis', 'kaiti', { 'no-border': !isEditable }]" :readonly="!isEditable"
-                        v-model="elem.period[selectedOption].end"> s</input>
+                        v-model="elem.period[selectedKou].end"> s</input>
                 </div>
             </div>
         </div>
@@ -54,6 +54,9 @@ import { usePhaseStore } from '@/stores/phase';
 const phaseStore = usePhaseStore()
 const { mydata, time_info } = storeToRefs(phaseStore)
 
+import { useStateStore } from '@/stores/state'
+const { selectedKou } = storeToRefs(useStateStore())
+
 
 
 let isEditable = ref(false)
@@ -66,16 +69,10 @@ function toggleEditable2() {
     // phaseData.value=JSON.parse(JSON.stringify(bendi));
 }
 
-const selectedOption = ref('0');  // 使用 ref 创建响应式变量
-const optionContent = {
-    option1: '这是选项 1 的内容',
-    option2: '这是选项 2 的内容',
-    option3: '这是选项 3 的内容'
-}
+// const selectedKou = ref('0');  // 使用 ref 创建响应式变量
 
 
 import * as XLSX from 'xlsx';
-
 function exportData() {
     // 使用flatMap进行扁平化
     // const phaseData = time_info
@@ -173,7 +170,7 @@ function exportData() {
 .period {
     /* background-color: lightgray; */
     flex: 1;
-    
+
     display: flex;
     justify-content: space-between;
 
