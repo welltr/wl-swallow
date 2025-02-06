@@ -2,7 +2,7 @@
     <div>
         <div v-if="stateStore.selectedKou == '0'">
             <p class="kaiti">第一口吞咽</p>
-            <Zhexian yData="[13, 14, 18, 15, 17, 18, 15, 15, 12, 19]" />
+            <Zhexian yData=[1,2,3,4,5] />
         </div>
         <div v-else>
             <p class="kaiti">第二口吞咽</p>

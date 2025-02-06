@@ -10,9 +10,9 @@ import * as echarts from 'echarts'
 export default {
     name: '',
     props: {
-        xData: { default: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }, //横坐标
-        yData: { default: [23, 24, 18, 25, 27, 28, 25, 50, 22, 29] }, //人数数据
-        title:'标题'
+        xData: { default: [1, 2, 3, 4, 5, 6] }, //横坐标
+        yData: { default: [1, 2, 3, 4, 5, 6] }, //人数数据
+        title: '标题'
     },
     data() {
         return {

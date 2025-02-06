@@ -14,7 +14,6 @@
     "pinia": "^2.3.0",
     "video.js": "^8.21.0",
     "vue": "^3.5.13",
-    "vue-video-player": "^6.0.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {

@@ -14,7 +14,6 @@
 
 <script setup>
 import mainapp from './mainapp.vue';
-import Test from './components/Test.vue';
 import TFIle from './components/tFIle.vue'
 
 
