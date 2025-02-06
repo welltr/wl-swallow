@@ -34,7 +34,7 @@
       <div class="flex-container">
         <!-- <span>输入帧数</span> -->
         <button @click="previousFrame" :class="['control-button', 'kaiti']">上一帧</button>
-        <input type="number" v-model="jumpToFrame" placeholder="输入帧数" class="kaiti" />
+        <input type="number" v-model="jumpToFrame" placeholder="输入帧数" class="kaiti shuru" />
         <button @click="jumpToSpecificFrame" class="kaiti">跳转</button>
         <button @click="nextFrame" :class="['control-button', 'kaiti']">下一帧</button>
       </div>
@@ -137,7 +137,7 @@ function f() {
  * 跳转到视频的指定帧
  */
 function jumpToSpecificFrame() {
-  const player = videoRef.value.player;
+  const video = videoRef.value;
   const frameTime = 1 / frameRate;
   const targetFrame = parseInt(jumpToFrame.value, 10);
 
@@ -150,7 +150,7 @@ function jumpToSpecificFrame() {
   // 清除错误消息并跳转
   errorMessage.value = '';
   const targetTime = (targetFrame - 1) * frameTime;
-  player.currentTime(Math.min(Math.max(targetTime, 0), player.duration()));
+  video.currentTime=(Math.min(Math.max(targetTime, 0), video.duration));
 }
 // 视频帧跳转逻辑，响应式变量定义
 const jumpToFrame = ref(0); // 用户输入帧数
@@ -176,11 +176,11 @@ const jumpToSeconds = ref('');
 
 // 逐帧控制函数
 function previousFrame() {
-  // console.log(videoRef)
-  const value = videoRef.value;
-  console.log(value.$player)
-  // const frameTime = 1 / frameRate;
-  // player.currentTime(Math.max(player.currentTime() - frameTime, 0));
+  const video = videoRef.value;
+  video.pause();
+  const frameTime = 1 / frameRate;
+
+  video.currentTime=(Math.max(video.currentTime- frameTime, 0));
 }
 
 function nextFrame() {
@@ -216,6 +216,9 @@ function nextFrame() {
   background-color: #3fbb94;
 }
 
+.shuru{
+  width: 40px;
+}
 .video-container {
   width: 100%;
   /* 或者具体数值，比如 600px */
@@ -329,7 +332,7 @@ function nextFrame() {
 
 .kaiti {
   font-family: 'STKaiti';
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* 可以根据需要添加更多样式 */
