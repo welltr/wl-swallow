@@ -1,14 +1,12 @@
 <template>
-    <div>
+    <div id="main">
         <div v-if="stateStore.selectedKou == '0'">
             <p class="kaiti">第一口吞咽</p>
-            <Zhexian yData=[1,2,3,4,5] />
+            <Zhexian title="坐标变化轨迹" yName="X坐标"/>
         </div>
         <div v-else>
             <p class="kaiti">第二口吞咽</p>
-            <Zhexian />
-
-
+            <Zhexian title="坐标变化轨迹" yName="X坐标"/>
         </div>
     </div>
 </template>
@@ -17,7 +15,6 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-// import Zhexian from './gjd.vue'; //弃用
 import Zhexian from './Zhexian.vue';
 
 import { useStateStore } from '@/stores/state';
@@ -32,4 +29,9 @@ const isKou1 = computed(() => stateStore.selectedKou == '0')
     font-family: 'STKaiti';
     font-size: 19px;
 }
+#main{
+    /* height: 600px; */
+    /* display: flex; */
+}
+
 </style>
