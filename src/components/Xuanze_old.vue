@@ -1,5 +1,6 @@
 <template>
     <div id="test">
+        {{ hotelStore.room }}
     </div>
     <div class="containbig">
         <div class="flex-container-middle">
@@ -27,43 +28,11 @@
 import { ref, reactive } from 'vue';
 import { storeToRefs } from 'pinia';
 
-import { useStateStore, useKongzhiStore} from '@/stores/state'
+import { useStateStore, useHotelStore } from '@/stores/state'
 const { selectedKou } = storeToRefs(useStateStore())
-const { isEditable } = storeToRefs(useKongzhiStore())
+const hotelStore = useHotelStore()
 
-// 。。。。。。
-// let isEditable = ref(false)
-let textInput = ref('')
-function toggleEditable() {
-    isEditable.value = true;
-}
-function toggleEditable2() {
-    isEditable.value = false;
-}
 
-import * as XLSX from 'xlsx';
-import { usePhaseStore } from '@/stores/phase';
-const phaseStore = usePhaseStore()
-const { time_info } = storeToRefs(phaseStore)
-function exportData() {
-    // 使用flatMap进行扁平化
-    console.log(time_info.value)
-    const flattenedData = time_info.value.flatMap(item =>
-        item.period.map(period => ({
-            "微动作名称": item.name,
-            '起始时间': period.start,
-            '结束时间': period.end
-        }))
-    );
-    // 创建一个新的工作簿
-    const wb = XLSX.utils.book_new();
-    // 将数据转换为工作表
-    const ws = XLSX.utils.json_to_sheet(flattenedData);
-    // 将工作表添加到工作簿中
-    XLSX.utils.book_append_sheet(wb, ws, '时间学参数');
-    // 生成Excel文件
-    XLSX.writeFile(wb, '导出数据.xlsx');
-}
 </script>
 
 

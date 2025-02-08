@@ -1,45 +1,23 @@
 <template>
     <div id="app">
-        <ProgressBar v-for="(item, index) in areaData" :key="index" class='line' :progress=countStore.progress :name="item.name"
-            :gtArea="item.areas" :resultArea="resultAreas[index] === undefined ? [] : resultAreas[index].areas" />
+        <TimeBar v-for="(item, index) in areaData" :key="index" class='line' :progress=countStore.progress
+            :name="item.name" :gtArea="item.areas"
+            :resultArea="resultAreas[index] === undefined ? [] : resultAreas[index].areas" />
     </div>
-    <!-- <div id="test">
-        <p>stat{{ countStore }}</p>
-        <p>end{{ countStore.progress }}</p>
-        <p>stat{{ areaData }}</p>
-        <p>myend</p>
-    </div> -->
 </template>
 
 <script setup>
-import ProgressBar from './TimeBar.vue';
 import { reactive, computed } from 'vue'
+import { storeToRefs } from 'pinia';
+import TimeBar from './TimeBar.vue';
 
 import { useCounterStore } from '@/stores/counter';
-import { storeToRefs } from 'pinia';
-
 const countStore = useCounterStore()
-const progress = computed(() => countStore.current / countStore.duration);
-
 
 import { usePhaseStore } from '@/stores/phase';
 const phaseStore = usePhaseStore()
 const { mydata, areaData } = storeToRefs(phaseStore)
 
-
-// import { usePeriod } from '@/stores/period';
-// const periodStore = usePeriod()
-// const { areaData } = storeToRefs(periodStore)
-const gtAreas = reactive([
-    { name: '口腔运送', areas: [{ start: 0.068884, end: 0.095740 }, { start: 0.813154697, end: 0.822642167 }] },
-    { name: '软腭上抬', areas: [{ start: 0.090566, end: 0.116397 }, { start: 0.819843213, end: 0.847372293 }] },
-    { name: '舌骨运动', areas: [{ start: 0.093929, end: 0.124313 }, { start: 0.819256147, end: 0.855936527 }] },
-    { name: '食管上括约肌开放', areas: [{ start: 0.102590, end: 0.119681 }, { start: 0.83192126, end: 0.845020771 }] },
-    { name: '咽期吞咽启动', areas: [{ start: 0.097067, end: 0.119543 }, { start: 0.813490709, end: 0.821510553 }] },
-    { name: '咽腔运送', areas: [{ start: 0.090334, end: 0.117319 }, { start: 0.816191435, end: 0.847479264 }] },
-    { name: '喉前庭关闭', areas: [{ start: 0.101415, end: 0.116859 }, { start: 0.831828117, end: 0.846544743 }] },
-    { name: '整体吞咽', areas: [{ start: 0.068884, end: 0.124313 }, { start: 0.813154697, end: 0.855936527 }] }
-])
 const resultAreas = []
 
 </script>

@@ -14,9 +14,8 @@ export const useStateStore = defineStore('state', () => {
     return { isLoading, selectedKou, loddingSuccess }
 })
 
-export const useXStore = defineStore('x', () => {
-    const x = ref(true);
-
-
-    return x 
-})
+export const useKongzhiStore = defineStore("kongzhi", {
+    state: () => ({
+        isEditable: false,
+    }),
+});

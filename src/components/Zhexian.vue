@@ -8,9 +8,8 @@ import * as echarts from 'echarts';
 export default {
     name: 'ECharts',
     props: {
-        xData: { default: [[1, 2]] }, //横坐标
-        yData: { default: [[23, 24]] }, //人数数据
-        // yName: { default: "坐标" },
+        xData: { default: [[1, 2]] }, //系列一
+        yData: { default: [[23, 24]] }, //系列二
         title: { default: "" }
     },
     mounted() {

@@ -42,8 +42,8 @@ const isKou1 = computed(() => stateStore.selectedKou == '0')
 
 import { useCoordsStore } from '@/stores/coords';
 const coordsStore = useCoordsStore()
-// const coords_data = computed(() => stateStore.selectedKou == '0')
 
+// 舌骨最大位移
 const zuida = [[6.72, 15.18], [11.68, 11.32]]
 
 </script>

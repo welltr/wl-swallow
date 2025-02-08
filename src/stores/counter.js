@@ -7,9 +7,6 @@ export const useCounterStore = defineStore("counter", () => {
 
 
   const progress = computed(() => current.value / duration.value);
-  // function progress() {
-  //   return current.value / duration.value;
-  // }
 
   function increment(x) {
     current.value = x;
