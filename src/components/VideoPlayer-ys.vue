@@ -142,14 +142,14 @@ function jumpToSpecificFrame() {
   const targetFrame = parseInt(jumpToFrame.value, 10);
 
   // 输入验证
-  if (isNaN(targetFrame) || targetFrame < 1 || targetFrame > totalFrames.value) {
+  if (isNaN(targetFrame) || targetFrame < 0 || targetFrame > totalFrames.value) {
     errorMessage.value = '请输入有效的帧数。';
     return;
   }
 
   // 清除错误消息并跳转
   errorMessage.value = '';
-  const targetTime = (targetFrame - 1) * frameTime;
+  const targetTime = (targetFrame+1) * frameTime;
   video.currentTime=(Math.min(Math.max(targetTime, 0), video.duration));
 }
 // 视频帧跳转逻辑，响应式变量定义

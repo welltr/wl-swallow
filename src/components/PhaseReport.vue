@@ -1,6 +1,8 @@
 <template>
     <div class="containbig">
-        <div class="flex-container-middle">
+        <h3 class="kaiti">吞咽微动作起止时间</h3>
+
+        <!-- <div class="flex-container-middle">
             <h3 class="kaiti">吞咽微动作起止时间</h3>
             <div class="flex-container-right">
                 <div class="kaiti">
@@ -18,7 +20,7 @@
             <button class="kaiti anniu" @click="toggleEditable2">保存修改</button>
             <button class="kaiti anniu" @click="exportData">导出数据</button>
 
-        </div>
+        </div> -->
 
 
 
@@ -76,7 +78,8 @@ import * as XLSX from 'xlsx';
 function exportData() {
     // 使用flatMap进行扁平化
     // const phaseData = time_info
-    const flattenedData = time_info.flatMap(item =>
+    console.log(time_info.value)
+    const flattenedData = time_info.value.flatMap(item =>
         item.period.map(period => ({
             name: item.name,
             start: period.start,

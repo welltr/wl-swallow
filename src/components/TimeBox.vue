@@ -1,28 +1,30 @@
 <template>
     <div id="app">
-        <ProgressBar v-for="(item, index) in areaData" :key="index" class='line' :progress=progress :name="item.name"
+        <ProgressBar v-for="(item, index) in areaData" :key="index" class='line' :progress=countStore.progress :name="item.name"
             :gtArea="item.areas" :resultArea="resultAreas[index] === undefined ? [] : resultAreas[index].areas" />
     </div>
-    <div id="test" style="display: none">
+    <!-- <div id="test">
         <p>stat{{ countStore }}</p>
         <p>end{{ countStore.progress }}</p>
         <p>stat{{ areaData }}</p>
         <p>myend</p>
-    </div>
+    </div> -->
 </template>
 
 <script setup>
 import ProgressBar from './TimeBar.vue';
-import { reactive } from 'vue'
+import { reactive, computed } from 'vue'
 
 import { useCounterStore } from '@/stores/counter';
 import { storeToRefs } from 'pinia';
+
 const countStore = useCounterStore()
-const { progress } = storeToRefs(countStore)
+const progress = computed(() => countStore.current / countStore.duration);
+
 
 import { usePhaseStore } from '@/stores/phase';
 const phaseStore = usePhaseStore()
-const { mydata,areaData } = storeToRefs(phaseStore)
+const { mydata, areaData } = storeToRefs(phaseStore)
 
 
 // import { usePeriod } from '@/stores/period';

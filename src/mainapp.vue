@@ -1,8 +1,12 @@
 <template>
   <div class="containbig">
-    <div class="half1 ">
+    <div class="half1 shadow-box1">
       <div class="ctn shadow-box">
-        <guanjiandian></guanjiandian>
+        <Xuanze class="ctn1" />
+      </div>
+
+      <div class="ctn shadow-box">
+        <guanjiandian class="ctn1"/>
         <!-- <SummaryReport class="ctn1" id='SummaryReport' msg="hi" :currentTime="currentTime" :totalTime="totalTime" /> -->
       </div>
       <div class="ctn shadow-box">
@@ -11,7 +15,7 @@
     </div>
     <div class="middle" />
 
-    <div class="half2">
+    <div class="half2 shadow-box1">
       <div class="ctn">
         <VideoPlayer class="ctn1" id='VideoPlayer' @child-time-change="handleTimeUpdate" />
       </div>
@@ -31,6 +35,7 @@ import Timebox from './components/TimeBox.vue';
 import PhaseReport from './components/PhaseReport.vue';
 import TFIle from './components/tFIle.vue'
 import guanjiandian from './components/guanjiandian.vue';
+import Xuanze from './components/Xuanze.vue';
 
 
 import { useStateStore } from './stores/state';
@@ -49,7 +54,7 @@ const stateStore = useStateStore()
   /* height: 2000px; */
 
   display: flex;
-  padding: 1%
+  margin: 1% 2%
 }
 
 .half1 {
@@ -62,7 +67,7 @@ const stateStore = useStateStore()
 }
 
 .middle {
-  flex: 0.5
+  flex: 0
 }
 
 .half2 {
@@ -76,22 +81,21 @@ const stateStore = useStateStore()
 .ctn {
   /* background-color: aquamarine; */
   flex: 1;
-  margin: 1% 2%;
+  /* margin: 1% 2%; */
 
 }
 
 .ctn1 {
   /* background-color: whitesmoke; */
+  width: 100%;
   height: 100%;
 }
 
 
 
-.shadow-box {
-  /* background: #fff; */
-  /* background:blueviolet; */
-  padding: 1% 5%;
-  /* margin-bottom: 10px; */
+.shadow-box1 {
+  padding: 0 3% ;
+  padding-bottom: 1%;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

@@ -8,9 +8,9 @@ import * as echarts from 'echarts';
 export default {
     name: 'ECharts',
     props: {
-        xData: { default: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }, //横坐标
-        yData: { default: [23, 24, 18, 25, 27, 28, 25, 50, 22, 29] }, //人数数据
-        yName: { default: "坐标" },
+        xData: { default: [[1, 2]] }, //横坐标
+        yData: { default: [[23, 24]] }, //人数数据
+        // yName: { default: "坐标" },
         title: { default: "" }
     },
     mounted() {
@@ -25,29 +25,28 @@ export default {
                 },
                 tooltip: {},
                 xAxis: {
+                    name: "时间/s",
+                    min: "dataMin",
+                    max: "dataMax"
                 },
-                yAxis: {},
+                yAxis: { name: "舌骨位置/mm" },
+                legend: {
+                    data: ['X轴坐标', 'Y轴坐标'],
+                    // orient: 'vertical',
+                    // bottom: 10,
+                    top:20
+                },
                 series: [{
-                    name: this.yName,
+                    name: "X轴坐标",
                     type: 'line',
-                    data: [
-                        [0, 20],
-                        [10, 23],
-                        [20, 22],
-                        [30, 20],
-                        [40, 30]]
+                    data: this.xData
                 },
                 {
-                    name: "Y坐标",
+                    name: "Y轴坐标",
                     type: 'line',
-                    data: [
-                        [0, 10],
-                        [10, 13],
-                        [20, 12],
-                        [30, 10],
-                        [40, 10]]
+                    data: this.yData
                 }
-            ]
+                ]
             };
             chart.setOption(option);
         }
@@ -58,7 +57,7 @@ export default {
 <style scoped>
 .back {
     /* background-color: antiquewhite; */
-    flex:1;
+    flex: 1;
     width: 100%;
     height: 300px;
 }
