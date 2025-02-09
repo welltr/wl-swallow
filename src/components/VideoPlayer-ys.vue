@@ -7,26 +7,8 @@
     <!-- 视频播放器 -->
     <video controls class="ctn" ref="videoRef" @timeupdate="sendTime">
       不在video元素书写src 在source元素书写
-      <source class="vd"  src="/final_video.mp4">
+      <source class="vd" src="/final_video.mp4">
     </video>
-    <!-- <div>
-      <video-player ref="videoRef" src="/final_video.mp4" :options="playerOptions" @play="onPlayerPlay($event, $state)"
-        @pause="onPlayerPause($event)" @timeupdate="onTimeUpdate($event)" />
-    </div> -->
-
-    <!-- <video-player ref="videoRef" src="/final_video.mp4" :options="playerOptions">
-      <template v-slot="{ player, state }">
-        <div class="custom-player-controls">
-          <button @click="state.playing ? player.pause() : player.play()">
-            {{ state.playing ? 'Pause' : 'Play' }}
-          </button>
-          <button @click="player.muted(!state.muted)">
-            {{ state.muted ? 'UnMute' : 'Mute' }}
-          </button>
-          <div class="yanse">test,{{ state.currentTime }}</div>
-        </div>
-      </template>
-</video-player> -->
 
     <!-- 视频控制按钮 -->
     <div class="video-controls">
@@ -39,15 +21,10 @@
         <button @click="nextFrame" :class="['control-button', 'kaiti']">下一帧</button>
       </div>
       <div :class='["info", "kaiti"]'>
-        帧: {{ currentFrame }} / {{ totalFrames }} ；
+        帧数: {{ currentFrame }} / {{ totalFrames }} ；
         时间: {{ formattedCurrentTime }} / {{ formattedDuration }}
       </div>
 
-
-      <!-- <div class="none">
-        <input type="text" v-model="jumpToSeconds" placeholder="输入秒数" />
-        <button @click="jumpToSpecificSeconds" class="kaiti">跳转到秒数</button>
-      </div> -->
       <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
 
     </div>
@@ -138,6 +115,8 @@ function f() {
  */
 function jumpToSpecificFrame() {
   const video = videoRef.value;
+  video.pause();
+
   const frameTime = 1 / frameRate;
   const targetFrame = parseInt(jumpToFrame.value, 10);
 
@@ -149,8 +128,8 @@ function jumpToSpecificFrame() {
 
   // 清除错误消息并跳转
   errorMessage.value = '';
-  const targetTime = (targetFrame+1) * frameTime;
-  video.currentTime=(Math.min(Math.max(targetTime, 0), video.duration));
+  const targetTime = (targetFrame + 1) * frameTime;
+  video.currentTime = (Math.min(Math.max(targetTime, 0), video.duration));
 }
 // 视频帧跳转逻辑，响应式变量定义
 const jumpToFrame = ref(0); // 用户输入帧数
@@ -180,14 +159,14 @@ function previousFrame() {
   video.pause();
   const frameTime = 1 / frameRate;
 
-  video.currentTime=(Math.max(video.currentTime- frameTime, 0));
+  video.currentTime = (Math.max(video.currentTime - frameTime, 0));
 }
 
 function nextFrame() {
   const video = videoRef.value;
   video.pause();
   const frameTime = 1 / frameRate;
-  video.currentTime=Math.min(video.currentTime + frameTime, video.duration);
+  video.currentTime = Math.min(video.currentTime + frameTime, video.duration);
 }
 
 </script>
@@ -216,9 +195,10 @@ function nextFrame() {
   background-color: #3fbb94;
 }
 
-.shuru{
-  width: 40px;
+.shuru {
+  width: 60px;
 }
+
 .video-container {
   width: 100%;
   /* 或者具体数值，比如 600px */
@@ -244,7 +224,7 @@ function nextFrame() {
 }
 
 .video-controls {
-  /* background-color: aqua; */
+  /* background-color: lightgrey; */
   font-family: 'STKaiti';
   display: flex;
   align-items: center;

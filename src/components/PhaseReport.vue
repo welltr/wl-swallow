@@ -1,39 +1,18 @@
 <template>
     <div class="containbig">
-        <h3 class="kaiti">吞咽微动作起止时间</h3>
-
-        <!-- <div class="flex-container-middle">
-            <h3 class="kaiti">吞咽微动作起止时间</h3>
-            <div class="flex-container-right">
-                <div class="kaiti">
-                    <label>吞咽片段选择：</label>
-                    <select v-model="selectedKou" class="kaiti" id="dropdown">
-                        <option value="0">第 1 口</option>
-                        <option value="1">第 2 口</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex-container-middle">
-            <button class="kaiti anniu" @click="toggleEditable">修改数据</button>
-            <button class="kaiti anniu" @click="toggleEditable2">保存修改</button>
-            <button class="kaiti anniu" @click="exportData">导出数据</button>
-
-        </div> -->
-
-
+        <div class="biaoti">吞咽微动作起止时间</div>
 
         <div class="recog">
             <div v-for="(elem, index) in time_info" :key="index" class="recog-cls">
-                <div class="title kaiti">{{ elem.name }}</div>
+                <div class="title kaiti cuti">{{ elem.name }}</div>
 
                 <div class="period">
                     <input :class="['dis', 'kaiti', { 'no-border': !isEditable }]" :readonly="!isEditable"
                         v-model="elem.period[selectedKou].start" />
-                    <div style="font-weight: bold;">~</div>
+                    <div class="kaiti cuti">~</div>
                     <input :class="['dis', 'kaiti', { 'no-border': !isEditable }]" :readonly="!isEditable"
-                        v-model="elem.period[selectedKou].end"> s</input>
+                        v-model="elem.period[selectedKou].end"></input>
+                    <div class="kaiti">s</div>
                 </div>
             </div>
         </div>
@@ -48,57 +27,25 @@ import { ref, reactive } from 'vue';
 import { storeToRefs } from 'pinia';
 
 import { usePhaseStore } from '@/stores/phase';
-const phaseStore = usePhaseStore()
-const { mydata, time_info } = storeToRefs(phaseStore)
+const { time_info } = storeToRefs(usePhaseStore())
 
 import { useStateStore, useKongzhiStore} from '@/stores/state'
 const { selectedKou } = storeToRefs(useStateStore())
 const { isEditable } = storeToRefs(useKongzhiStore())
-
-// let isEditable = ref(false)
-let textInput = ref('')
-function toggleEditable() {
-    isEditable.value = true;
-}
-function toggleEditable2() {
-    isEditable.value = false;
-    // phaseData.value=JSON.parse(JSON.stringify(bendi));
-}
-
-// const selectedKou = ref('0');  // 使用 ref 创建响应式变量
-
-
-import * as XLSX from 'xlsx';
-function exportData() {
-    // 使用flatMap进行扁平化
-    // const phaseData = time_info
-    console.log(time_info.value)
-    const flattenedData = time_info.value.flatMap(item =>
-        item.period.map(period => ({
-            name: item.name,
-            start: period.start,
-            end: period.end
-        }))
-    );
-    // 创建一个新的工作簿
-    const wb = XLSX.utils.book_new();
-
-    // 将数据转换为工作表
-    const ws = XLSX.utils.json_to_sheet(flattenedData);
-
-    // 将工作表添加到工作簿中
-    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-
-    // 生成Excel文件
-    XLSX.writeFile(wb, '导出的数据.xlsx');
-}
 
 </script>
 
 
 
 <style scoped>
+.biaoti{
+    /* background-color: aliceblue; */
+    font-family: 'STKaiti';
+    font-size: 20px;
+    font-weight: bold;
+}
 .containbig {
+    /* background-color: aquamarine; */
     /* margin: auto 5%; */
     display: flex;
     flex-direction: column;
@@ -137,12 +84,14 @@ function exportData() {
 
 .kaiti {
     font-family: 'STKaiti';
-    font-size: 19px;
+    font-size: 18px;
+}
+.cuti{
+    font-weight: bold
 }
 
-
 .recog {
-    flex: 8;
+    /* flex: 8; */
     display: flex;
     flex-direction: column;
     justify-content: space-between
@@ -155,12 +104,12 @@ function exportData() {
     align-items: center;
     justify-content: space-between;
 
-    /* margin-bottom: 10px; */
+    margin-bottom: 5px;
 }
 
 .title {
     /* background-color: aliceblue; */
-    font-weight: bold;
+    /* font-weight: bold; */
     flex: 1;
 }
 

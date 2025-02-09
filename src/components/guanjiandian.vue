@@ -1,30 +1,20 @@
 <template>
-    <!-- <div>
-        <Zhexian :title='["X坐标","Y"][stateStore.selectedKou]' />
-    </div> -->
     <div class="containbig">
-        <div class="flex-container-middle">
-            <h3 class="kaiti">舌骨中心点变化轨迹</h3>
-            <!-- <p class="kaiti">舌骨最大位移： X, Y = {{ zuida[stateStore.selectedKou][0] }}, {{ zuida[stateStore.selectedKou][1]
-                }}
-            </p> -->
-            <p class="kaiti">舌骨最大位移： 
-                X轴方向 {{ zuida[stateStore.selectedKou][0] }} mm , 
-                Y轴方向 {{ zuida[stateStore.selectedKou][1] }} mm
-            </p>
-        </div>
+        <div class="biaoti test">舌骨中心点变化轨迹</div>
 
-
-        <div id="main">
+        <div id="main test">
             <div v-if="stateStore.selectedKou == '0'">
-                <!-- <p class="kaiti">第一口吞咽</p> -->
                 <Zhexian title="" :xData="coordsStore.first.x_coords" :yData="coordsStore.first.y_coords" />
             </div>
             <div v-else>
-                <!-- <p class="kaiti">第二口吞咽</p> -->
                 <Zhexian title="" :xData="coordsStore.second.x_coords" :yData="coordsStore.second.y_coords" />
             </div>
         </div>
+        <div class="kaiti">舌骨最大位移：
+            X轴方向 {{ zuida[stateStore.selectedKou][0] }} mm ,
+            Y轴方向 {{ zuida[stateStore.selectedKou][1] }} mm
+        </div>
+
     </div>
 
 
@@ -48,15 +38,27 @@ const zuida = [[6.72, 15.18], [11.68, 11.32]]
 
 </script>
 <style scoped>
+.test {
+    /* background-color: aliceblue; */
+}
+
 .kaiti {
+    /* background-color: aliceblue; */
+    font-family: 'STKaiti';
+    font-size: 18px;
+}
+
+.biaoti {
     font-family: 'STKaiti';
     font-size: 19px;
+    font-weight: bold;
 }
 
 .containbig {
     display: flex;
     flex-direction: column;
-    justify-content: space-between
+    justify-content: space-between;
+    /* background-color: blue; */
 }
 
 .flex-container-middle {

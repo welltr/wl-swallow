@@ -1,7 +1,6 @@
 import { ref, reactive, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-
 const expdata = {
   "video_url": '空无一物',
   "task_id": '啥也没有',
@@ -10,25 +9,29 @@ const expdata = {
 }
 
 export const usePhaseStore = defineStore('phase', () => {
-  let mydata = reactive(expdata)
-  // const doubleCount = computed(() => count.value * 2)
+  let mydata = ref(expdata)
+  const _data = ref({ "bendi": true })
+
   function updateData(newValue) {
     console.log('before', mydata)
-    for (const key in newValue) {
-      mydata[key] = newValue[key];
-    }
+    mydata.value = { ...mydata.value, ...newValue }
     console.log('after', mydata)
+    _data.value = JSON.parse(JSON.stringify(mydata.value))
   }
 
-  const time_info = computed(() => mydata.time_info)
+  const time_info = computed(() => _data.value.time_info)
 
-  const areaData = computed(() => mydata.time_info.map(item => ({
+  function changesave() {
+    mydata.value = { ..._data.value }
+  }
+
+  const areaData = computed(() => mydata.value.time_info.map(item => ({
     name: item.name,
     areas: item.period.map(e => ({
-      start: e.start / mydata.video_dur,
-      end: e.end / mydata.video_dur
+      start: e.start / mydata.value.video_dur,
+      end: e.end / mydata.value.video_dur
     }))
   }))
   )
-  return { mydata, updateData, time_info, areaData }
+  return { updateData, time_info, changesave, areaData }
 })

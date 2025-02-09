@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div class="ct">
         <TimeBar v-for="(item, index) in areaData" :key="index" class='line' :progress=countStore.progress
             :name="item.name" :gtArea="item.areas"
             :resultArea="resultAreas[index] === undefined ? [] : resultAreas[index].areas" />
@@ -23,6 +23,12 @@ const resultAreas = []
 </script>
 
 <style scoped>
+.ct {
+    /* display: flex;
+    flex-direction: column; */
+
+}
+
 #app {
     /* background-color: azure; */
     font-family: Avenir, Helvetica, Arial, sans - serif;
@@ -32,6 +38,6 @@ const resultAreas = []
 }
 
 .line {
-    margin: 18px auto;
+    margin: 20px auto;
 }
 </style>

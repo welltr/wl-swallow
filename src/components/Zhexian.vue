@@ -23,17 +23,25 @@ export default {
                     text: this.title
                 },
                 tooltip: {},
+                grid: {
+                    top: '15%',
+                    bottom: '8%',
+                    left: '10%',
+                    right: '10%'
+                },
                 xAxis: {
                     name: "时间/s",
                     min: "dataMin",
                     max: "dataMax"
                 },
-                yAxis: { name: "舌骨位置/mm" },
+                yAxis: { name: "舌骨位置/mm" ,
+                    min:10
+                },
                 legend: {
                     data: ['X轴坐标', 'Y轴坐标'],
                     // orient: 'vertical',
                     // bottom: 10,
-                    top:20
+                    // top: 20
                 },
                 series: [{
                     name: "X轴坐标",
@@ -58,6 +66,6 @@ export default {
     /* background-color: antiquewhite; */
     flex: 1;
     width: 100%;
-    height: 300px;
+    height: 250px;
 }
 </style>
