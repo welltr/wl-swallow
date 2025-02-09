@@ -16,8 +16,8 @@ export const useCoordsStore = defineStore('coords', () => {
     }
     console.log('after', _data)
   }
-  const first = computed(() => _data.first)
-  const second = computed(() => _data.second)
+  const first = computed(() => _data['0'])
+  const second = computed(() => _data['1'])
 
   return { _data, updateData, first, second }
 })

@@ -1,40 +1,44 @@
 <template>
     <div class="containbig">
-        <div class="biaoti test">舌骨中心点变化轨迹</div>
-
-        <div id="main test">
-            <div v-if="stateStore.selectedKou == '0'">
-                <Zhexian title="" :xData="coordsStore.first.x_coords" :yData="coordsStore.first.y_coords" />
+        <div class="biaoti">舌骨中心点变化轨迹</div>
+        <div id="main">
+            <div v-if="selectedKou == '0'">
+                <Zhexian title="" :xData="coordsData.x_coords" :yData="coordsData.y_coords" />
             </div>
-            <div v-else>
-                <Zhexian title="" :xData="coordsStore.second.x_coords" :yData="coordsStore.second.y_coords" />
+            <div v-else-if="selectedKou == '1'">
+                <Zhexian title="" :xData="coordsData.x_coords" :yData="coordsData.y_coords" />
+            </div>
+            <div v-else-if="selectedKou == '2'">
+                <Zhexian title="" :xData="coordsData.x_coords" :yData="coordsData.y_coords" />
             </div>
         </div>
+
         <div class="kaiti">舌骨最大位移：
-            X轴方向 {{ zuida[stateStore.selectedKou][0] }} mm ,
-            Y轴方向 {{ zuida[stateStore.selectedKou][1] }} mm
+            X轴方向 {{ zuida[selectedKou][0] }} mm ,
+            Y轴方向 {{ zuida[selectedKou][1] }} mm
         </div>
 
     </div>
-
-
 </template>
-
 
 
 <script setup>
 import { ref, computed } from 'vue';
+import { storeToRefs } from 'pinia';
 import Zhexian from './Zhexian.vue';
 
+// 选择口数
 import { useStateStore } from '@/stores/state';
 const stateStore = useStateStore();
-const isKou1 = computed(() => stateStore.selectedKou == '0')
+const { selectedKou } = storeToRefs(stateStore)
 
+// 关键点数据
 import { useCoordsStore } from '@/stores/coords';
 const coordsStore = useCoordsStore()
-
+const coordsData = computed(() => coordsStore._data[stateStore.selectedKou])
 // 舌骨最大位移
-const zuida = [[6.72, 15.18], [11.68, 11.32]]
+// const zuida = [[6.72, 15.18], [11.68, 11.32]]
+const zuida = [[7.23, 6.15], [8.26, 8.01], [10.89, 9.71]]
 
 </script>
 <style scoped>
@@ -59,17 +63,5 @@ const zuida = [[6.72, 15.18], [11.68, 11.32]]
     flex-direction: column;
     justify-content: space-between;
     /* background-color: blue; */
-}
-
-.flex-container-middle {
-    /* flex: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; */
-}
-
-#main {
-    /* height: 600px; */
-    /* display: flex; */
 }
 </style>

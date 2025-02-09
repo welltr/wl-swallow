@@ -8,6 +8,7 @@
                     <select v-model="selectedKou" class="kaiti" id="dropdown">
                         <option value="0">第 1 口</option>
                         <option value="1">第 2 口</option>
+                        <option value="2">第 3 口</option>
                     </select>
                 </div>
             </div>

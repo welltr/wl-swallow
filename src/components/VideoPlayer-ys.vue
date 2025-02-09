@@ -25,9 +25,8 @@
         时间: {{ formattedCurrentTime }} / {{ formattedDuration }}
       </div>
 
-      <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
-
     </div>
+    <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
 
     <!-- 其他信息容器 -->
     <div id="caseInfoDiv" class="info-box">Case Info</div>
@@ -81,7 +80,7 @@ function onTimeUpdate(player, state) {
 }
 
 
-const frameRate = 30; // 视频帧率
+const frameRate = 29.97; // 视频帧率
 
 // 计算属性
 const currentFrame = computed(() => Math.floor(counterStore.current * frameRate));
