@@ -38,6 +38,7 @@ const resultAreas = []
 }
 
 .line {
-    margin: 20px auto;
+    margin-top: 22px;
+    /* margin: 24px auto; */
 }
 </style>

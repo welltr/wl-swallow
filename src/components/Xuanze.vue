@@ -86,7 +86,7 @@ function handle_data() {
 <style scoped>
 .biaoti{
     font-family: 'STKaiti';
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
 }
 .containbig {

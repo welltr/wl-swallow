@@ -124,7 +124,7 @@ export default {
 
 .bar {
     width: 2px;
-    height: 40px;
+    height: 48px;
     position: absolute;
     background-color: rgb(224, 12, 12);
     z-index: 100;

@@ -25,7 +25,7 @@ export default {
                 tooltip: {},
                 grid: {
                     top: '15%',
-                    bottom: '8%',
+                    bottom: '10%',
                     left: '10%',
                     right: '10%'
                 },
@@ -66,6 +66,6 @@ export default {
     /* background-color: antiquewhite; */
     flex: 1;
     width: 100%;
-    height: 250px;
+    height: 200px;
 }
 </style>

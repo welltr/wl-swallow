@@ -41,7 +41,7 @@ const { isEditable } = storeToRefs(useKongzhiStore())
 .biaoti{
     /* background-color: aliceblue; */
     font-family: 'STKaiti';
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
 }
 .containbig {

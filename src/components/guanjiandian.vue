@@ -50,7 +50,7 @@ const zuida = [[6.72, 15.18], [11.68, 11.32]]
 
 .biaoti {
     font-family: 'STKaiti';
-    font-size: 19px;
+    font-size: 22px;
     font-weight: bold;
 }
 
