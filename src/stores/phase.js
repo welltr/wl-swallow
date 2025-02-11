@@ -22,7 +22,8 @@ export const usePhaseStore = defineStore('phase', () => {
   const time_info = computed(() => _data.value.time_info)
 
   function changesave() {
-    mydata.value = { ..._data.value }
+    // mydata.value = { ..._data.value }
+    mydata.value = JSON.parse(JSON.stringify(_data.value))
   }
 
   const areaData = computed(() => mydata.value.time_info.map(item => ({
