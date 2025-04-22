@@ -8,9 +8,9 @@
             <div v-else-if="selectedKou == '1'">
                 <Zhexian title="" :xData="coordsData.x_coords" :yData="coordsData.y_coords" />
             </div>
-            <div v-else-if="selectedKou == '2'">
+            <!-- <div v-else-if="selectedKou == '2'">
                 <Zhexian title="" :xData="coordsData.x_coords" :yData="coordsData.y_coords" />
-            </div>
+            </div> -->
         </div>
 
         <div class="kaiti">舌骨最大位移：
@@ -37,8 +37,8 @@ import { useCoordsStore } from '@/stores/coords';
 const coordsStore = useCoordsStore()
 const coordsData = computed(() => coordsStore._data[stateStore.selectedKou])
 // 舌骨最大位移
-// const zuida = [[6.72, 15.18], [11.68, 11.32]]
-const zuida = [[7.23, 6.15], [8.26, 8.01], [10.89, 9.71]]
+const zuida = [[6.72, 15.18], [11.68, 11.32]]
+// const zuida = [[7.23, 6.15], [8.26, 8.01], [10.89, 9.71]]
 
 </script>
 <style scoped>
