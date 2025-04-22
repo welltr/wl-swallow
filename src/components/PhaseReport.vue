@@ -1,6 +1,6 @@
 <template>
     <div class="containbig">
-        <div class="biaoti">吞咽微动作起止时间</div>
+        <div class="biaoti">Onset and Offset of Swallow Micro-events</div>
 
         <div class="recog">
             <div v-for="(elem, index) in time_info" :key="index" class="recog-cls">

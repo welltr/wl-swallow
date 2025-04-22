@@ -30,26 +30,26 @@ export default {
                     right: '10%'
                 },
                 xAxis: {
-                    name: "时间/s",
+                    name: "time/s",
                     min: "dataMin",
                     max: "dataMax"
                 },
-                yAxis: { name: "舌骨位置/mm" ,
+                yAxis: { name: "Hyoid position/mm" ,
                     min:10
                 },
                 legend: {
-                    data: ['X轴坐标', 'Y轴坐标'],
+                    data: ['X-axis coordinate', 'Y-axis coordinate'],
                     // orient: 'vertical',
                     // bottom: 10,
                     // top: 20
                 },
                 series: [{
-                    name: "X轴坐标",
+                    name: "X-axis coordinate",
                     type: 'line',
                     data: this.xData
                 },
                 {
-                    name: "Y轴坐标",
+                    name: "Y-axis coordinate",
                     type: 'line',
                     data: this.yData
                 }

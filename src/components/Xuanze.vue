@@ -1,13 +1,13 @@
 <template>
     <div class="containbig">
         <div class="flex-container-middle">
-            <h3 class="biaoti">数据控制台</h3>
+            <h3 class="biaoti">Data Console</h3>
             <div class="flex-container-right">
                 <div class="kaiti">
-                    <label>吞咽片段选择：</label>
+                    <label>Swallowing fragment select：</label>
                     <select v-model="selectedKou" class="kaiti" id="dropdown">
-                        <option value="0">第 1 口</option>
-                        <option value="1">第 2 口</option>
+                        <option value="0"> 1 st</option>
+                        <option value="1"> 2 st</option>
                         <!-- <option value="2">第 3 口</option> -->
                     </select>
                 </div>
@@ -15,9 +15,9 @@
         </div>
 
         <div class="flex-container-middle">
-            <button class="kaiti anniu" @click="toggleEditable">修改数据</button>
-            <button class="kaiti anniu" @click="toggleEditable2">保存修改</button>
-            <button class="kaiti anniu" @click="exportData">导出数据</button>
+            <button class="kaiti anniu" @click="toggleEditable">Change Data</button>
+            <button class="kaiti anniu" @click="toggleEditable2">Save Change</button>
+            <button class="kaiti anniu" @click="exportData">Export Data</button>
 
         </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
     <div class="containbig">
-        <div class="biaoti">舌骨中心点变化轨迹</div>
+        <div class="biaoti">Hyoid movement</div>
         <div id="main">
             <div v-if="selectedKou == '0'">
                 <Zhexian title="" :xData="coordsData.x_coords" :yData="coordsData.y_coords" />
@@ -13,9 +13,9 @@
             </div> -->
         </div>
 
-        <div class="kaiti">舌骨最大位移：
-            X轴方向 {{ zuida[selectedKou][0] }} mm ,
-            Y轴方向 {{ zuida[selectedKou][1] }} mm
+        <div class="kaiti">Maximum movement of the hyoid bone:
+            X-axis direction {{ zuida[selectedKou][0] }} mm ,
+            Y-axis direction {{ zuida[selectedKou][1] }} mm
         </div>
 
     </div>
