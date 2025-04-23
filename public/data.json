@@ -7,7 +7,7 @@
     "time_info": [
       {
         "label_id": 1,
-        "name": "OralDelivery",
+        "name": "Oral Delivery",
         "period": [
           {
             "period_id": 1,
@@ -23,7 +23,7 @@
       },
       {
         "label_id": 2,
-        "name": "SoftPalateLift",
+        "name": "Soft Palate Lift",
         "period": [
           {
             "period_id": 1,
@@ -39,7 +39,7 @@
       },
       {
         "label_id": 3,
-        "name": "HyoidExercise",
+        "name": "Hyoid Exercise",
         "period": [
           {
             "period_id": 1,
@@ -55,7 +55,7 @@
       },
       {
         "label_id": 4,
-        "name": "UESOpen",
+        "name": "UES Open",
         "period": [
           {
             "period_id": 1,
@@ -71,7 +71,7 @@
       },
       {
         "label_id": 5,
-        "name": "ThroatSwallow",
+        "name": "Throat Swallow",
         "period": [
           {
             "period_id": 1,
@@ -87,7 +87,7 @@
       },
       {
         "label_id": 6,
-        "name": "ThroatTransport",
+        "name": "Throat Transport",
         "period": [
           {
             "period_id": 1,
@@ -103,7 +103,7 @@
       },
       {
         "label_id": 7,
-        "name": "LaryngealVestibuleClosure",
+        "name": "Laryngeal Vestibule Closure",
         "period": [
           {
             "period_id": 1,
@@ -119,7 +119,7 @@
       },
       {
         "label_id": 8,
-        "name": "AllTime",
+        "name": "Whole Swallow",
         "period": [
           {
             "period_id": 1,

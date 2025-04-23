@@ -16,12 +16,12 @@
       <div class="flex-container">
         <!-- <span>输入帧数</span> -->
         <button @click="previousFrame" :class="['control-button', 'kaiti']">Previous frame</button>
-        <input type="number" v-model="jumpToFrame" placeholder="Input frame" class="kaiti shuru" />
         <button @click="jumpToSpecificFrame" class="kaiti">Jump to</button>
+        <input type="number" v-model="jumpToFrame" placeholder="Input frame" class="kaiti shuru" />
         <button @click="nextFrame" :class="['control-button', 'kaiti']">Next frame</button>
       </div>
       <div :class='["info", "kaiti"]'>
-        Frame count: {{ currentFrame }} / {{ totalFrames }} ；
+        Frame: {{ currentFrame }} / {{ totalFrames }} ；
         Time: {{ formattedCurrentTime }} / {{ formattedDuration }}
       </div>
 
